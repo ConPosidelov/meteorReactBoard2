@@ -1,0 +1,85 @@
+/* CSS declarations go here */
+@import "_header.scss";
+
+$body-color: hsl(205, 33%, 38%);
+
+.b_wrapper {
+  //background-color: #315481;
+  //background-image: linear-gradient(to bottom, #315481, #918e82 100%);
+  //background-attachment: fixed;
+ 
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+
+  font-family: sans-serif;
+  font-size: 14px;
+
+  background-color: #FFF;
+}
+ 
+.b_container {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  background-color: #FFF;
+  margin: 0;
+  padding: 0;
+}
+ 
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+
+ 
+@media (max-width: 600px) {
+  
+}
+
+.board-container {
+  //display: none;
+  position: relative;
+  width: 100%;
+  height: 500px;
+  //border: 1px solid #000;
+
+  .point-item {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 8px;
+    border: 1px solid red;
+
+    div {
+      position: relative;
+      //width: 100%;
+      .point-content{
+        position: absolute;
+        padding: 5px 10px;
+        width: auto;
+        border: 1px solid #000;
+        background: #FFF;
+      }
+
+      .point-pointer{
+        
+        height: 1px;
+        border-top: 1px solid #000;
+        
+      }
+    }
+  }
+}
+

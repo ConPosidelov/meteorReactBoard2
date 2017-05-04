@@ -1,0 +1,29 @@
+//==========================================================
+//     @include circle();
+//==========================================================
+@mixin circle($diameter: 20px, $background: #fd926d){
+    display: block;
+    width: $diameter;
+    height: $diameter;
+    background: #{$background};
+    -moz-border-radius: $diameter / 2;
+    -webkit-border-radius: $diameter / 2;
+    border-radius: $diameter / 2;
+
+}
+
+//==========================================================
+//     @include skype_style();
+//==========================================================
+@mixin skype_style_top($top: 0, $left_right: 0, $diameter: 20px,  $bg_color: #fd926d ){
+
+    
+
+
+
+
+
+
+
+
+}

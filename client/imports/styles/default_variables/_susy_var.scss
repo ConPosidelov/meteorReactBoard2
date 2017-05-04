@@ -1,0 +1,30 @@
+/********************************************************
+ susy Variables
+********************************************************/
+
+$susy: (   
+    flow: ltr, // сменить дефолтное навправление колонок
+    math: fluid, // static для неадаптивных сайтов    
+    output: float, // используйте outside для исправлениях некоторых багов   
+    gutter-position: after, // возможны  before и inside   
+    container: 1200px, // максимальную ширину в любых единицах, например, 60em   
+    container-position: center, // если вы хотите сделать не по центру, то можно использовать left и right   
+    columns: 12, // количество колонок   
+    gutters: .1428, // ширина пробельчика для каждой колонки - множитель к ширине колонки  
+    column-width: false, // ширина колонки задается только при math: static   
+    global-box-sizing: border-box, // можно задать border-box, но иногда проще использовать border-box миксин из компаса   
+    last-flow: to, // последний элемент в ряду флоатится вправо, можно сменить   
+    debug: ( 
+        image: hide, // варианты: show | hide | show-columns | show-baseline для показа всех вариантов колонок и линеечек     
+        color: rgba(#66f, .45), // менять цвет у колонок     
+        output: background, // есть еще вариант overlay, в котором колонки показываются только при наведении     
+        toggle: top right, // положение переключателя для показа оверлея   
+    ),   
+    use-custom: ( // для каждого из них если включить true будут использоваться миксины из Compass или ваши собственные)     
+        background-image: false, // возможность использовать свой миксин background-image     
+        background-options: false, // разные background миксины     
+        box-sizing: true, // свой миксин box-sizing     
+        clearfix: false, // свой миксин clearfix     
+        rem: true,   
+    )
+);

@@ -1,0 +1,45 @@
+.ellipsisAtTheEnd {
+    white-space: nowrap; /* Отменяем перенос текста */
+    overflow: hidden; /* Обрезаем содержимое */
+    text-overflow: ellipsis; /* Многоточие */
+}
+
+//цвета
+$colorGrey-100: #f5f5f5;  // серый1
+$colorGrey-200: #eeeeee;  // серый2
+$colorGrey-300: #e0e0e0;  // серый3
+$colorBlueGrey-50: #eceff1;  // сине серый 
+$colorBlueGrey-100: #cfd8dc;  // сине серый 
+$colorBlueGrey-200: #b0bec5;  // сине серый 
+
+$colorBlue100: #bbdefb;  // синий основной
+$colorBlue100L: #eeffff;  // светлый
+$colorBlue100D: #8aacc8;  // темный
+
+$colorOrange100: #ffe0b2;  // оранжевый 
+$colorOrange100L: #ffffe4;  // светлый
+$colorOrange100D: #cbae82;  // темный
+
+$colorPrimary: $colorBlue100;  //основной
+$colorPrimaryL: $colorBlue100L;  // светлый
+$colorPrimaryD: #2286c3;  // темный
+
+$colorSecondary: $colorOrange100;  //вторичный
+$colorSecondaryL: $colorOrange100L;  //вторичный
+$colorSecondaryD: #c75b39;  //вторичный
+
+//----------------------------------
+
+.avatarInCircle {
+    border-radius: 50%;
+    box-sizing: border-box;
+    min-width: 20px;
+    min-height: 20px;
+    max-width: 300px;
+    max-height: 300px;
+    text-align: center;
+    text-transform: uppercase;
+    //background: url('../images/bg_slider/bg9-top.jpg') transparent center center no-repeat;
+    background-size: 100% 100%;
+
+}

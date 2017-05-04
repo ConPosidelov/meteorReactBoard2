@@ -1,0 +1,72 @@
+.card-user {
+    height: 400px;
+    .panel-heading {
+        height: 200px;
+        position: relative;
+        .bgImage {
+            height: 200px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-top-right-radius: 3px;
+            border-top-left-radius: 3px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+            }
+        }
+        .userAvatar {
+            height: 160px;
+            width: 160px;
+            position: absolute;
+            left: calc(50% - 80px);
+            top: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            img {
+                margin-top: 5px;
+                margin-left: 5px;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                //overflow: hidden;
+            }
+
+        }
+    }
+
+    .panel-body {
+        padding-left: 40px;
+        padding-right: 40px;
+        height: 200px;
+        position: relative;
+        .fullName {
+            margin-top: 5px;
+            text-align: center;
+        }
+        .description {
+            width: 80%;
+            text-align: center;
+        }
+
+        .organization {
+            position: absolute;
+            bottom: -10px;
+            left: 10%;
+            
+            border-top: 1px solid #000;
+            height: 40px;
+            width: 80%;
+
+            h5:nth-child(1) {
+                float: left;
+            }
+            h5:nth-child(2) {
+                float: right;
+            }
+        }
+    }
+    
+}

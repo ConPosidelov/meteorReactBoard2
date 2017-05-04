@@ -1,0 +1,83 @@
+//
+//
+
+.DashboardLayout {
+    .dashboardBody {
+        .bodyContentProfile {
+            padding: 30px;
+
+            .formUser {
+    
+                .form-group {
+                    width: 100%;
+                    margin-bottom: 2em;
+                    .control-label {
+                        font-size: $font-size-h6;
+                    }
+
+                }
+
+                &.profileExt1 {
+                   .form-group {
+                        height: 2em;
+                        .control-label {
+                            float: left;
+                            margin-right: 1em;
+                        }
+
+                        .form-control {
+                           width: 60%;
+                           float: right;
+                        }
+
+                        .help-block {
+                            display: none;
+                        }  
+                   } 
+                }
+
+                &.profileExt2 {
+
+                   .form-group {
+                        padding-left: 20px;
+                        height: 30px;
+                        margin-bottom: 0;
+                        .control-label {
+                            float: left;
+                            padding-left: 10px;
+                            //padding-right: 20px;
+                            margin-right: 6%;
+                        }
+                        
+                   } 
+                   
+                   
+                }
+                .showAvatarWith {
+                       
+                    //margin-bottom: 2em;
+                    height: 50px;
+                }
+
+
+            }
+
+            .selectAnAvatar {
+                .panel-body {
+                    padding-top: 5px;
+                    padding-left: 5px;
+                }
+                .avatarImages {
+                    float: left;
+                    margin-left: 10px;
+                    margin-top: 10px;
+                    cursor: pointer;
+                }
+            }
+
+
+        }
+        
+    }
+
+}

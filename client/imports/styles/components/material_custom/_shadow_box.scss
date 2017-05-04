@@ -1,0 +1,43 @@
+$shadow_opacity: 0.2;
+$shadow_color: rgba(0, 0, 0, $shadow_opacity);
+
+.shadow-1 {
+    $shadow_opacity: 0.15;
+   @include box-shadow(0, 1px, 6px, 0, $shadow_color);
+  $shadow_opacity: 0.1;
+   @include box-shadow(0, 3px, 8px, 0, $shadow_color);  
+}
+.shadow-1-5 {
+    $shadow_opacity: 0.15;
+   @include box-shadow(0, 2px, 6px, 0, $shadow_color);
+  $shadow_opacity: 0.1;
+   @include box-shadow(0, 4px, 12px, 0, $shadow_color);  
+}
+
+
+
+
+.shadow-2 {
+    $shadow_opacity: 0.2;
+   @include box-shadow(0, 8px, 17px, 0, $shadow_color);
+   @include box-shadow(0, 6px, 20px, 0, $shadow_color);  
+}
+
+.shadow-3 {
+    $shadow_opacity: 0.24;
+   @include box-shadow(0, 12px, 16px, 0, $shadow_color);
+   $shadow_opacity: 0.20;
+   @include box-shadow(0, 17px, 50px, 0, $shadow_color);  
+}
+
+.shadow-4 {
+    $shadow_opacity: 0.22;
+   @include box-shadow(0, 16px, 28px, 0, $shadow_color);
+   @include box-shadow(0, 25px, 56px, 0, $shadow_color);  
+}
+
+.shadow-5 {
+    $shadow_opacity: 0.22;
+   @include box-shadow(0, 27px, 24px, 0, $shadow_color);
+   @include box-shadow(0, 40px, 77px, 0, $shadow_color);  
+}

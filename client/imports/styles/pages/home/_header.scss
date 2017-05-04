@@ -1,0 +1,89 @@
+//
+//
+.home_navbar_main{
+    //height: $navbar_height;
+    padding: 20px 0;
+    .container{
+       .navbar-header{
+          height: $navbar-header_height;
+          
+          a {
+            display: block;
+            height: $navbar-header_height;
+            padding:5px 0;
+            span {
+                float: left;
+                margin-left: 20px;
+                display: block;
+                height: 40px;
+                line-height: 40px;
+                font-size: 30px;
+            }
+
+            .logo {
+                font-size: 40px;
+                width: 40px;
+                height: 40px;
+                transform-origin: 50% 50% 50%;
+                transform: rotate(45deg);
+                float: left;
+                //margin-top: 20px;
+                margin-left: 0.5em;
+                
+                cursor: pointer;
+                &:hover{
+                    @include rotateIn(
+                        $duration: 1s,
+                        $fill: backwards,
+                        $count: 1,
+                        $function: ease
+                        );
+                }
+            }
+          }                                                              
+       } 
+
+        .home_nav {
+            float: right;
+            
+            .home_nav_navbar {
+                float: left;
+                li {
+                    a{
+                        font-size: 22px;
+                    }
+
+                    &.active {
+                        border-bottom: 3px solid #555;
+                        a{
+                            background: none;
+                        }
+                        
+                    }
+                }
+            }
+
+            .home_nav_user {
+                float: right;
+                margin-left: 30px;
+                li {
+                    float: left;
+                    a{
+                        font-size: 22px;
+                        color: $color3;
+                        &:hover {
+                            text-decoration: none;
+                            @include swing();
+                        }
+                    }
+                }
+                .logout {
+                    margin-left: -10px;
+                }
+            }
+
+        }
+
+    }
+
+}

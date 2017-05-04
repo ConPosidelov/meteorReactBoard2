@@ -1,0 +1,142 @@
+/*******************************************************/
+/* BG Variables */
+/*******************************************************/
+
+$bg-center: "transparent center center no-repeat";
+
+/*******************************************************/
+/* color Variables */
+/*******************************************************/
+$wite-color: hsl(0, 0%,100%); 
+/*  colors1 */
+/* $color1: hsl(206, 16%, 35%);/*  hsl(206, 16%, 35%); сине-серый*/
+/* $color2: hsl(192, 73%, 36%);  /*hsl(192, 73%, 36%); голубой*/
+/* $color3: hsl(163, 34%, 60%); /*hsl(163, 34%, 60%); ваниль*/
+/* $color4: hsl(162, 69%, 69%); /*hsl(162, 69%, 69%); светло ваниль*/
+/* $color5: hsl(48, 100%, 84%); /*hsl(48, 100%, 84%); желтый*/
+
+ $color1: hsl(205, 33%, 38%);/*   сине-серый*/
+ $color2: hsl(10, 100%, 67%);  /* красный*/
+ $color3: #99ccdd; /*голубой #bfdfea #73b9d0 */
+ $color4: hsl(41, 23%, 67%); /*бежевый*/
+ $color5: hsl(69, 54%, 88%); /*кремовый*/
+ $color6: #eeeeee;
+ $color5: #ccdddd;
+
+/* BG-colors */                               
+$bg-header: "url('../images/bg_slider/bg9-top.jpg') #{$bg-center}";
+//$bg-header_active: hsla(195, 50%, 73%, 0.95);
+$bg-header_active: hsla(180, 10%, 83%, 0.97);
+
+$header_slider-background: "url('../images/bg_slider/bg9-bottom.jpg') #{$bg-center}";
+//$header_slider-background: $color5;
+$header_title-bg_color: hsla(192, 73%, 36%, 0.1);
+
+$short_features-bg_color: $color6;
+$slide_it_disk-color: $color1;
+$warn-color: $color2;
+
+$bg-s2: $wite-color;    $option_it-bd-color: $color5;
+$bg-s3: $color6;
+$bg-s4: $wite-color;
+$bg-s5: $color6;        $blog_it-bd-color: $wite-color;
+$bg-s6: $color3;
+$bg-footer: $color1;
+/*text colors*/
+
+
+$text_color1: hsl(0, 0%,0%); //самый черный
+$text_color2: hsl(0, 0%,21%);
+$text_color3: hsl(0, 0%,35%);
+$text_color4: hsl(0, 0%,49%);
+$text_color5: hsl(0, 0%,63%);
+$text_color6: hsl(0, 0%,77%);
+$text_color7: hsl(0, 0%,91%);
+$text_color8: hsl(0, 0%,100%);//белый
+
+
+/*button colors*/
+$button-color1: $color2;
+$button_text-color1: $color2;
+
+/*icon colors
+//$icon-color1: $gray-color;
+
+
+// var --------------------------------------
+$tm_el-height: 36px; // высота кнопок меню
+$tm_el_heig_offset: $tm_el-height / 4; // дистанция
+
+$info_butt-bg: RGBA(90%, 92%, 92%, 1.0); // цвет кнопок меню
+$info-butt_bord: RGBA(70%, 72%, 72%, 1.0); // бордер кнопок
+$info-icon_color: RGBA(92, 151, 191, 1.0); // цвет иконок на кнопках
+$info-icon_size: 22px; // размер иконок
+
+
+
+$text_el-color: rgba(0%, 34%, 51%, 1.0);  // цвет шрифта элемента
+$contur-color : RGBA(70%, 72%, 72%, 1.0); //   RGBA(44, 62, 80, 1.0)
+$word_el-color: rgba(0%, 34%, 51%, 1.0); // цвет шрифта слова
+$translate_el-color: rgba(0%, 34%, 51%, 1.0);// цвет шрифта перевода
+
+$container-bg: RGBA(90%, 92%, 92%, 1.0);  //общий фон
+$info-bg: RGBA(86%, 88%, 88%,1.0);       // основное меню
+
+
+
+//$info-butt_hover: rgba(1, 152, 110, 0.6);//больше синивы и темнее
+$info-butt_hover: RGBA(38, 166, 91, 1.0); // более зеленый и ярче
+
+$el_marker-color: RGBA(27, 188, 155, 1.0); // зеленый яркий
+
+$el_main-bg: RGBA(95%, 97%, 97%, 1.0);  //фон элемента
+
+
+
+
+
+*/
+
+
+
+/********************************************************
+ Icons Variables 
+********************************************************/
+    
+//$icon-font1:"Wingdings 3";
+//$icon-font2:"Glyphicons Halflings";
+//$icon-font3:"WebHostingHub-Glyphs";
+$icon-font4:"Fontawesome";
+$icon-font5:"Myicon";
+
+
+/********************************************************
+ Layouts Variables
+********************************************************/
+$bg-width: 1200px;
+$in-width_dec: 960px;
+
+$in-width_pad: 768px;
+$in-width_phon: 640px;
+$main-max-width: $in-width_dec;
+
+$phone_brake: 656px;
+//$phone_brake: 640px;
+$pad_brake: 768px;
+
+/********************************************************
+ sections Variables
+********************************************************/
+
+
+
+/* ======================= section2================================== */
+
+/* ======================= servises_head ========= */
+//$options_head-height: 40px;
+/* ======================= servises_body ========= */
+
+
+/* ======================= section3 services================================== */
+
+

@@ -1,0 +1,126 @@
+//
+    $sideBarBorder: $medium-gray;  // #DDDDDD
+    
+//
+
+
+.DashboardLayout {
+    width: 100%;
+    
+    
+    .sideBar {
+        width: 260px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        //background-color: $color1;
+        border-right: 1px solid $medium-gray;
+        //box-shadow: inset -1px 0px 0px 0px $medium-gray;
+        .sidebar-wrapper{
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            z-index: 4;
+            //box-shadow: inset -1px 0px 0px 0px $medium-gray;
+
+            .sidebar_brand {
+                display: block;
+                height: 75px;
+                width: 100%;
+                border-bottom: 1px solid $medium-gray;
+                
+                padding:5px 0;
+                span {
+                    float: left;
+                    margin-left: 25px;
+                    display: block;
+                    height: 40px;
+                    line-height: 60px;
+                    font-size: 26px;
+                }
+
+                .sidebar_brand-logo {
+                    font-size: 40px;
+                    width: 40px;
+                    height: 40px;
+                    //line-height: 75px;
+                    transform-origin: 50% 50% 50%;
+                    transform: rotate(45deg);
+                    float: left;
+                    margin-top: 10px;
+                    margin-left: 25px;
+                    
+                    cursor: pointer;
+                    &:hover{
+                        @include rotateIn(
+                            $duration: 1s,
+                            $fill: backwards,
+                            $count: 1,
+                            $function: ease
+                            );
+                    }
+                }
+                
+            }
+
+            .nav {
+                margin-top: 30px;
+                li {
+                    a {
+                        padding-left: 30px;
+                    }
+                }
+            }
+
+        }
+
+
+
+    }
+
+    .dashboardBody {
+        width: calc(100% - 260px);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        //background-color: $color5;
+        .bodyTopBar{
+            height: 75px;
+            width: 100%;
+            border-bottom: 1px solid $medium-gray;
+            padding-top: 16px;
+            padding-right: 50px;
+            .bodyNav {
+                .logOut {
+                    margin-left: 50px;
+                    margin-top: -5px;
+                  
+
+                    a{
+                        font-size: 22px;
+                        color: $color3;
+                       
+                        &:hover {
+                            text-decoration: none;
+                            @include swing();
+
+                        }
+                    }
+                       
+ 
+                    
+                }
+                
+            }
+
+        }
+        
+
+
+    }
+
+}

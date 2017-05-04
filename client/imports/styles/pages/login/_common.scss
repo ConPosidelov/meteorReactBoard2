@@ -1,0 +1,95 @@
+.login_wrapper {
+    margin: 0 auto;
+    width: 400px;
+
+    .dropdown {
+        margin-top: 100px;
+        .dropdown-toggle{
+            display: none;
+        }
+        .dropdown-menu {
+            display: block;
+        }
+    }
+
+}
+
+/*
+
+#login-dropdown-list > a
+
+<li id="login-dropdown-list" class="dropdown open">
+        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Sign in / Join <b class="caret"></b></a>
+        <div class="dropdown-menu">
+            
+    
+        
+            
+        <button class="login-button btn btn-block btn-Facebook">Sign in with Facebook</button>
+    
+        
+    
+    
+        
+             
+                <div class="or">
+        <span class="hline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span class="or-text">or</span>
+        <span class="hline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+            
+            
+        
+    
+        
+            
+        
+            
+        <!-- TODO: Implement more input types -->
+        
+
+        
+
+        
+
+        
+            <input id="login-username" type="text" placeholder="Username" class="form-control">
+        
+    
+        
+            
+        
+            
+        <!-- TODO: Implement more input types -->
+        
+
+        
+
+        
+
+        
+            <input id="login-password" type="password" placeholder="Password" class="form-control">
+        
+    
+        
+        <button class="btn btn-primary col-xs-12 col-sm-12" id="login-buttons-password" type="button">
+            
+                Sign in
+            
+        </button>
+        
+            <div id="login-other-options">
+            
+            
+                <a id="signup-link" class="pull-right">Create account</a>
+            
+            </div>
+        
+        
+    
+        
+    
+        </div>
+    </li>
+
+    */

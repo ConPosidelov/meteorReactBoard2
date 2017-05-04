@@ -1,0 +1,121 @@
+//
+
+$header-height: 80px;
+//
+header {
+  width: 100%;
+  height: $header-height;
+  padding: 0 1em;
+  position: relative;
+ 
+  background: $wite-color;
+  //background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
+
+    .logo {
+        font-size: 40px;
+        width: 40px;
+        height: 40px;
+        transform-origin: 50% 50% 50%;
+        transform: rotate(45deg);
+        float: left;
+        margin-top: 20px;
+        margin-left: 0.5em;
+        
+        cursor: pointer;
+        &:hover{
+            @include rotateIn(
+                $duration: 1s,
+                $fill: backwards,
+                $count: 1,
+                $function: ease
+                );
+        }
+    }
+    .board-name {
+        float: left;
+        margin-left: 2em;
+        margin-top: $header-height * 0.2;
+        height: $header-height * 0.6;
+
+        .name{
+            float: left;
+            height: $header-height * 0.6;
+            h1{
+                line-height: $header-height * 0.6;
+                margin: 0;
+            }
+        }
+        .edit-name{
+            float: left;
+            margin-left: 0.5em;
+            line-height: $header-height * 0.6;
+            cursor: pointer;
+            &:hover {
+                @include swing();
+            }
+        }
+
+    }
+    .relations{
+        float: right;
+        .nav-login {
+          display: block;
+          float: right;
+          margin-right: 0.5em;
+          margin-top: 20px;
+          padding: 0;  
+          #login-dropdown-list{
+            a{
+                padding: 8px 10px;
+                color: $body-color;
+                font-weight: 600;
+            }
+            .dropdown-menu {
+                top: 120%;
+            }
+          }
+          
+        }
+        .share {
+            float: right;
+            margin-right: 1em;
+            margin-top: 20px;
+            padding: 8px 10px;
+            height: 38px;
+            span{
+               float: left;
+               display: block; 
+               color: $body-color;
+               font-weight: 600;
+               height: 20px;
+               padding: 0;
+               line-height: 20px;
+            }
+      
+            &:before {
+                float: left;
+                @extend .material-icons;
+                content:'supervisor_account';
+                line-height: 18px;
+                height: 14px;
+                margin-right: 8px;
+
+                
+
+            }
+            &:hover:before{
+                   @include shake(); 
+                }
+
+        }
+
+        .members{
+            float: left;
+        }
+
+
+    }
+
+    
+
+}

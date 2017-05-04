@@ -1,0 +1,45 @@
+//
+
+
+
+//var
+
+@import "imports/styles/default_variables/_background_var.scss";
+@import "imports/styles/default_variables/_elements_var.scss";
+@import "imports/styles/project_variables/_variables.scss";
+//base
+@import "imports/styles/base/_fonts.scss";
+@import "imports/styles/base/_elements.scss";
+//mixins
+@import "imports/styles/mixins/common/_box_shadow.scss";
+// components
+@import "imports/styles/components/animate/_animate.scss";
+@import "imports/styles/components/material/_shadows.scss";
+@import "imports/styles/components/material_custom/_shadow_box.scss";
+
+@import "imports/styles/pages/_common.scss";
+//board
+@import "imports/styles/pages/board/_header.scss";
+@import "imports/styles/pages/board/_main.scss";
+//home
+@import "imports/styles/pages/home/_common.scss";
+@import "imports/styles/pages/home/_header.scss";
+@import "imports/styles/pages/home/_tour.scss";
+//login
+@import "imports/styles/pages/login/_common.scss";
+
+//dashboardLayout
+@import "imports/styles/pages/dashboard/_variables.scss";
+@import "imports/styles/pages/dashboard/_mixins.scss";
+@import "imports/styles/pages/dashboard/_common.scss";
+@import "imports/styles/pages/dashboard/_sidebar-and-main-panel.scss";
+@import "imports/styles/pages/dashboard/_navbars.scss";
+@import "imports/styles/pages/dashboard/_cards.scss";
+@import "imports/styles/pages/dashboard/_user-profile.scss";
+
+
+@import "stylesheets/_application.scss";
+
+// -------------------------------------
+
+

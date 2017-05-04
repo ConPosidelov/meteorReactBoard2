@@ -1,0 +1,86 @@
+//
+//
+
+.editProfile {
+    height: 400px;
+}
+.formUser {
+    
+    .form-group {
+        width: 100%;
+        margin-bottom: 2em;
+        .control-label {
+            font-size: $font-size-h5;
+        }
+
+    }
+
+    &.profileExt1 {
+       .form-group {
+            .control-label {
+                float: left;
+                margin-right: 1em;
+            }
+
+            .form-control {
+               width: 60%;
+               float: right;
+            }
+
+            .help-block {
+                display: none;
+            }  
+       } 
+    }
+
+    &.profileExt2 {
+
+       .form-group {
+            padding-left: 20px;
+            height: 30px;
+            margin-bottom: 0;
+            .control-label {
+                float: left;
+                padding-left: 10px;
+                //padding-right: 20px;
+                margin-right: 6%;
+            }
+            
+       } 
+       
+       
+    }
+     .showAvatarWith {
+           
+        //margin-bottom: 2em;
+        height: 50px;
+        }
+
+
+}
+
+
+
+.avatarGallery {
+    width: 100%;
+    margin-top: 1em;
+    
+    .avatarImg{
+        //width: 18%;
+        margin-top: 10px;
+        margin-right: 2%;
+        width: 100px;
+        float: left;
+        height: 100px;
+        border: 1px solid #000;
+        img {
+            //width: 15%;
+            }
+    }
+}
+.uploadNew {
+    
+    .panel-body {
+        height: 150px;
+    }
+}

@@ -1,0 +1,118 @@
+
+
+
+.boardsLayout {
+    width: 100%;
+    position: relative;
+    .topMenu {
+        width: 100%;
+        height: 75px;
+        padding: 15px 10px;
+        //background-color: $colorPrimaryL;
+        border-bottom: 1px solid $colorPrimaryD;
+        .toDashboard {
+            display: block;
+            float: left;
+            margin: 0;
+            margin-top: 8px;
+            margin-left: 0px;
+            i {
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+        .topMenuTools {
+            margin-left: 200px;
+        }
+
+        .bodyNav {
+                .logOut {
+                    margin-left: 50px;
+                    margin-top: -5px;
+                  
+
+                    a{
+                        font-size: 22px;
+                        color: $color3;
+                       
+                        &:hover {
+                            text-decoration: none;
+                            @include swing();
+
+                        }
+                    }
+                       
+ 
+                    
+                }
+                
+            }
+
+        button {
+            i {
+                color: $colorPrimaryD;
+            }
+            &.active {
+                i {
+                    color: $colorSecondaryD;
+                }
+            }
+        }
+    }
+    .boardsBody {
+        width: 100%;
+        position: relative;
+        .leftToolBar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: calc(100vh - 75px);
+            width: 253px;
+            margin-left: -200px;
+            transition: margin 0.8s;
+            background-color: $colorGrey-100;
+            border-right: 1px solid $colorPrimaryD;
+            //float: left;
+            //display: none;
+            &.active {
+               margin-left: 0;
+               transition: margin 0.8s; 
+            }
+
+            .buttonGroup {
+                float: right;
+            }
+            button {
+                i {
+                    color: $colorPrimaryD;
+                }
+                &.active {
+                    i {
+                        color:$colorSecondaryD;
+                    }
+                }
+            }
+            .pushSidebarButton {
+                margin-bottom: 50px!important;
+                border-bottom: 1px solid $colorPrimaryD;
+            }
+
+        }
+        .boardsBodyContent {
+            float: left;
+            width: 100%;
+            height: calc(100vh - 75px);
+            background-color: $colorSecondaryL;
+            padding-top: 20px;
+
+            .red {
+                    background: red;
+                }
+           
+
+        }
+    }
+}

@@ -1,0 +1,43 @@
+//==========================================================
+//     @include sloping_line();  @include sloping_line(20.0deg, 50%, $section1-bg_color, 2); создает 2 элемента- паралеллограмма с наклоном
+//==========================================================
+@mixin sloping_line($deg: 9.0deg, $height: 25%, $bg_color: #fd926d, $z: 2){
+
+    &:before{
+       content: "";
+       background-color: $bg_color;
+       position: absolute;
+       width: 50.1%;
+       height: $height; 
+       left: 0;
+       //$tan: tan($deg) * 10;
+       top: -(tan($deg) * 100)* 1%;
+
+       -webkit-transform: skew(0deg, $deg);
+          -moz-transform: skew(0deg, $deg);
+          -ms-transform: skew(0deg, $deg);
+          -o-transform: skew(0deg, $deg);
+          transform: skew(0deg, $deg);
+
+        z-index: $z; 
+    }
+
+      &:after{
+           content: "";
+           background-color: $bg_color;
+           position: absolute;
+           width: 50%;
+           height: $height;
+           left: 50%; 
+           top: -(tan($deg) * 100)* 1%; 
+        
+           -webkit-transform: skew(0deg, -$deg);
+              -moz-transform: skew(0deg, -$deg);
+              -ms-transform: skew(0deg, -$deg);
+              -o-transform: skew(0deg, -$deg);
+              transform: skew(0deg, -$deg);
+
+            z-index: $z;  
+
+    }
+}

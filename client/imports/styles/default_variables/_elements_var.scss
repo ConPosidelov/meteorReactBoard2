@@ -1,0 +1,57 @@
+/********************************************************
+ Elements Variables Default
+********************************************************/
+$f-fontawesome: 'Fontawesome';
+$f-bodoni_cyr: 'Bodoni-Cyrillic';
+$f-bodoni_std: 'Bodoni-Std-Book';
+$f-futuris-cyr: 'Futuris-Cyrillic';
+$f-journalsansit: 'JournalSans-Italic-Cyrillic';
+$f-RobotoDraft: 'RobotoDraft', sans-serif;
+
+
+$f-PTSansNarrow: 'PT Sans Narrow', sans-serif;
+$f-Neucha: 'Neucha', cursive;
+$f-PTSans: 'PT Sans', sans-serif;
+$f-ubuntu: 'Ubuntu', sans-serif;
+$f-Forum: 'Forum', cursive;
+
+$body-font:$f-RobotoDraft;
+
+$head-font:$body-font;
+$body-font_size: 10px;
+$body-line_height: 1.2;
+//$body-color: palette(Black, Text);
+$body-color: hsl(205, 33%, 38%);
+
+$h1-font: $head-font;
+$h2-font: $head-font;
+$h3-font: $head-font;
+$h4-font: $head-font;
+$h5-font: $head-font;
+
+$h1-font_size: 30px;
+$h2-font_size: 26px;
+$h3-font_size: 22px;
+$h4-font_size: 18px;
+$h5-font_size: 15px;
+
+$h1-font_weight: 300;
+$h2-font_weight: 300;
+$h3-font_weight: 300;
+$h4-font_weight: 300;
+$h5-font_weight: 300;
+
+$h1-line_height: 1.0;
+$h2-line_height: 1.2;
+$h3-line_height: 1.2;
+$h4-line_height: 1.2;
+$h5-line_height: 1.2;
+
+$p-font: $body-font;
+$p-font_size: 16px;
+$p-line_height: 1.6;
+$p-font_weight: 300;
+
+$hr-margins: 5px;
+$br-margins: 0;
+

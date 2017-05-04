@@ -1,0 +1,25 @@
+.DashboardLayout {
+    .dashboardBody {
+
+        .dashboardContacts {
+            padding: 20px;
+             
+
+            .addContactGroup {
+                margin-top: 25px;
+                margin-left: 10px;
+            }
+            .contactTabs {
+                margin-top: 20px;
+                .nav{
+                    li{
+                        a{
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
