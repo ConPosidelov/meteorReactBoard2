@@ -118,5 +118,6 @@ Meteor.methods({
         Boards.update(boardId, {$set: {members: newMembers}});
         //console.log('boards.logMember is OK');
         return 'boards.logMember is OK'
+        //return newMembers
      }   
 });    

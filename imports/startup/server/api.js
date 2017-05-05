@@ -16,3 +16,4 @@ import '../../api/dashboard/boards/collections.js';
 //====board=========================================
 
 import '../../api/boards/server/publications.js';
+import '../../api/boards/server/methods.js';

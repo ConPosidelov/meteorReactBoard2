@@ -11,6 +11,7 @@ import Home from '../../ui/containers/Home.js';
 import Dashboard from '../../ui/containers/Dashboard.js';
 //import Boards from '../../ui/containers/Boards.js';
 import Boards from '../../ui/containers/Boards.js';
+import BoardsLayout from '../../ui/components/BoardsLayout.jsx';
 
 import Summary from '../../ui/containers/dashboard/Summary.js';
 import Profile from '../../ui/containers/dashboard/Profile.jsx';
@@ -44,7 +45,7 @@ Meteor.startup(() => {
                <Route name="Contacts" path="contacts" component={Contacts} onEnter={authenticate}/>
                <Route name="DashboardBoards" path="dashboardBoards" component={DashboardBoards} onEnter={authenticate}/>
             </Route>
-            <Route name="Boards" path="boards/:boards" component={ Boards } onEnter={ authenticate }>
+            <Route name="Boards" path="boards/:boards" component={ Boards } onEnter={ authenticate } onLeave ={BoardsLayout.onLeave}>
             </Route>
 
 

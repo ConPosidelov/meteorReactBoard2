@@ -54,6 +54,7 @@ class BoardsList extends React.Component {
         Meteor.call('boards.logMember', boardId,  (err, res) => {
             console.log('logMember', res);
             this.context.router.push(`/boards/${boardId}`);
+            //this.props.router.push(`/boards/${boardId}`);
         });
 
     }

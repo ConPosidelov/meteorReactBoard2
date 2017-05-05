@@ -54,5 +54,15 @@ class BoardsLayout extends React.Component {
 
 };
 
+BoardsLayout.onLeave = function({params}){
+
+    console.log('BoardsLayout.onLeave', params);
+    let boardId = params.boards;
+    Meteor.call('boards.LeaveMember', boardId,  (err, res) => {
+        console.log('LeaveMember', res);
+
+    });
+
+};
 
 export default BoardsLayout;
