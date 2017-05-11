@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+
 import {Row, Col, Glyphicon, Panel, Button, Tab, Nav, NavItem } from 'react-bootstrap';
 import AddBoard  from '../../components/dashboard/boards/AddBoard.jsx';
 import BoardsList  from '../../components/dashboard/boards/BoardsList.jsx';

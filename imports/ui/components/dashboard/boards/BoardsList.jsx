@@ -1,12 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MyContact  from '../../../components/dashboard/contacts/MyContact.jsx';
 import {Row, Col, Panel,  Tab, ListGroup, ListGroupItem, Table, Modal } from 'react-bootstrap';
 import { Grid, Button, Icon, Menu } from 'semantic-ui-react';
-import { Link } from 'react-router';
+
+import {withRouter} from 'react-router-dom';
+
+const BoardsList = withRouter(props => <BoardsList1 {...props}/>);
 
 
-
-class BoardsList extends React.Component {
+class BoardsList1 extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -51,15 +54,19 @@ class BoardsList extends React.Component {
     }
 
     logMember(boardId) {
+            console.log('props1', this.props);
         Meteor.call('boards.logMember', boardId,  (err, res) => {
             console.log('logMember', res);
-            this.context.router.push(`/boards/${boardId}`);
+            console.log('props2', this.props);
+
+            this.props.history.push(`/boards/${boardId}`);
             //this.props.router.push(`/boards/${boardId}`);
         });
 
     }
 
     render() {
+      console.log('props0', this.props);
         const {boards, contacts} = this.props.userData;
         //console.log('boards', boards);
         let showTable;
@@ -152,9 +159,9 @@ class BoardsList extends React.Component {
     }
 }
 
-BoardsList.contextTypes = {
-   router: React.PropTypes.object
-};
+//BoardsList.contextTypes = {
+//   router: React.PropTypes.object
+//};
 
 
 

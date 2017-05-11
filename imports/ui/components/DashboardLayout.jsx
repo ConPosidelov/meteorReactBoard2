@@ -1,7 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Route, Link, Switch } from 'react-router-dom';
 import { Grid, Row, Col, Navbar, Nav, NavItem,  MenuItem , Glyphicon } from 'react-bootstrap';
 import handleLogout from '../../modules/common/handleLogout.js';
+import Summary from '../containers/dashboard/Summary.js';
+import Profile from '../containers/dashboard/Profile.jsx';
+import Contacts from '../containers/dashboard/contacts.js';
+import DashboardBoards from '../containers/dashboard/boards.js';
 
 
 class DashboardLayout extends React.Component {
@@ -69,7 +73,12 @@ class DashboardLayout extends React.Component {
                         </Nav>
                     </div>
 
-                    {this.props.children}
+                    <Switch>
+                      <Route exact path='/dashboard' component={Summary}/>
+                      <Route path='/dashboard/profile' component={Profile}/>
+                      <Route path='/dashboard/contacts' component={Contacts}/>
+                      <Route path='/dashboard/dashboardBoards' component={DashboardBoards}/>
+                    </Switch>
 
 
                 </div>

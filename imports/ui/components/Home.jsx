@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import handleLogout from '../../modules/common/handleLogout.js';
 
-const renderlogin = hasUser => {
+const renderlogin = ({hasUser, history})=> {
     if(hasUser){
         return (
             <ul className="nav navbar-nav home_nav_user">   
                 <li><Link to="/dashboard" className="fa fa-home"></Link></li>
-                <li><a href="#"  className="logout fa fa-sign-out" onClick={ handleLogout }></a></li>
+                <li><a href="#"  className="logout fa fa-sign-out" onClick={() => handleLogout(history)}></a></li>
             </ul>
         );
     } else {
@@ -20,7 +21,7 @@ const renderlogin = hasUser => {
 
 };
 
-const renderGettingStart = hasUser => {
+const renderGettingStart = ({hasUser}) => {
     if(!hasUser){
         return <Link type="button" className="btn btn-default btn-lg center"  to="/signup">Getting start now</Link>;
     }
@@ -31,11 +32,13 @@ const renderGettingStart = hasUser => {
 class Home extends React.Component {
 
   componentDidMount() {
-   {console.log('doc=', this.props);} 
+   
   }
 
   render() {
-    const data  = this.props; 
+    //const data  = this.props;
+    console.log('this.props', this.props);
+    //console.log('data', data);
     return (
 
       <div className="home_wrapper">
@@ -63,7 +66,7 @@ class Home extends React.Component {
 
                 </ul>{/* main-navbar-nav */}
 
-                { renderlogin(data.hasUser) }
+                { renderlogin(this.props) }
 
 
             </div>{/* navbar-collapse */} 
@@ -80,7 +83,7 @@ class Home extends React.Component {
            
               <p className="lead">Visual online collaboration for remote teams</p>
 
-            { renderGettingStart(data.hasUser) }
+            { renderGettingStart(this.props) }
 
             </div>
 

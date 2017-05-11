@@ -2,16 +2,16 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
+//import {history} from './myHistory';
 
-import App from '../../ui/layouts/App.jsx';
+
 
 import Home from '../../ui/containers/Home.js';
 import Dashboard from '../../ui/containers/Dashboard.js';
-//import Boards from '../../ui/containers/Boards.js';
 import Boards from '../../ui/containers/Boards.js';
-import BoardsLayout from '../../ui/components/BoardsLayout.jsx';
+//import BoardsLayout from '../../ui/components/BoardsLayout.jsx';
 
 import Summary from '../../ui/containers/dashboard/Summary.js';
 import Profile from '../../ui/containers/dashboard/Profile.jsx';
@@ -24,6 +24,8 @@ import RecoverPassword from '../../ui/pages/RecoverPassword.js';
 import ResetPassword from '../../ui/pages/ResetPassword.js';
 import Signup from '../../ui/pages/Signup.js';
 
+
+
 const authenticate = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.userId()) {
     replace({
@@ -35,26 +37,23 @@ const authenticate = (nextState, replace) => {
 
 Meteor.startup(() => {
   render(
-    <Router history={ browserHistory }>
-      <Route path="/" component={ App }>
-        <IndexRoute name="index" component={ Home }  />
+    <Router>
+      
+      <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route path='/dashboard' component={Dashboard}/>
+        
+        <Route path="/boards/:boards" component={ Boards }/>
+          
 
-            <Route name="Dashboard" path="dashboard" component={ Dashboard } onEnter={ authenticate }>
-               <IndexRoute component={Summary}  onEnter={authenticate}/>
-               <Route name="Profile" path="profile" component={Profile} onEnter={authenticate}/>
-               <Route name="Contacts" path="contacts" component={Contacts} onEnter={authenticate}/>
-               <Route name="DashboardBoards" path="dashboardBoards" component={DashboardBoards} onEnter={authenticate}/>
-            </Route>
-            <Route name="Boards" path="boards/:boards" component={ Boards } onEnter={ authenticate } onLeave ={BoardsLayout.onLeave}>
-            </Route>
-
-
-        <Route name="login" path="/login" component={ Login } />
-        <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
-        <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />
-        <Route name="signup" path="/signup" component={ Signup } />
-        <Route path="*" component={ NotFound } />
-      </Route>
+        
+        <Route path="/login" component={ Login } />
+        <Route path="/recover-password" component={ RecoverPassword } />
+        <Route path="/reset-password/:token" component={ ResetPassword } />
+        <Route path="/signup" component={ Signup } />
+      
+        <Route component={ NotFound } />
+      </Switch>
     </Router>,
     document.getElementById('react-root')
   );

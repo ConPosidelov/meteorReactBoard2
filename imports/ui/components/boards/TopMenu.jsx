@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import {Row, Col, Glyphicon, Nav, NavItem } from 'react-bootstrap';
 import { Grid, Button, Icon, Menu, Segment, Divider, List} from 'semantic-ui-react';
 import handleLogout from '../../../modules/common/handleLogout.js';

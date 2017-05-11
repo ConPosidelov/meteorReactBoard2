@@ -4,9 +4,10 @@ import Loading from '../components/Loading.js';
 import BoardsLayout from '../components/BoardsLayout.jsx';
 import Boards from '../../api/dashboard/boards/collections.js';
 
-const composer = ({ params }, onData) => {
+const composer = ({match}, onData) => {
   const subscription = Meteor.subscribe('boards.for.user');
-   console.log('params', params);
+    const {params} = match;
+   console.log('params',params); 
   if (subscription.ready()) {
 
 

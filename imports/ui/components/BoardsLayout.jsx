@@ -1,9 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, Switch, Route } from 'react-router-dom';
 import {Row, Col } from 'react-bootstrap';
 import { Grid, Button, Icon, Menu , Sidebar, Segment, Header, Container} from 'semantic-ui-react';
 import TopMenu  from '../components/boards/TopMenu.jsx';
 import LeftToolBar  from '../components/boards/LeftToolBar.jsx';
+
+
+
+
 
 class BoardsLayout extends React.Component {
 
@@ -53,7 +57,7 @@ class BoardsLayout extends React.Component {
     }
 
 };
-
+/*
 BoardsLayout.onLeave = function({params}){
 
     console.log('BoardsLayout.onLeave', params);
@@ -65,4 +69,21 @@ BoardsLayout.onLeave = function({params}){
 
 };
 
+const BoardsLayout0 = () => (
+    <div>
+       BoardsLayout0
+    </div>    
+);
+
+
+
+
+const BoardsLayout3 = () => (
+  <Switch>
+    <Route exact path='/boards' component={BoardsLayout0}/>
+    <Route path='/boards/:boards' component={BoardsLayout1}/>
+  </Switch>
+);
+
+*/
 export default BoardsLayout;

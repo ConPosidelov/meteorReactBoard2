@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 
-import { browserHistory } from 'react-router';
+//import { browserHistory } from 'react-router';
+//import {history} from '../startup/client/myHistory';
 import { Meteor } from 'meteor/meteor';
 import { Bert } from 'meteor/themeteorchef:bert';
 import './validation.js';
@@ -17,11 +18,16 @@ const login = () => {
     } else {
       Bert.alert('Logged in!', 'success');
 
-      const { location } = component.props;
+      const { location, history } = component.props;
+
+      //const location = history.location;
+     // console.log('history', history);
       if (location.state && location.state.nextPathname) {
-        browserHistory.push(location.state.nextPathname);
+        console.log('location.state1', location.state);
+        history.push(location.state.nextPathname);
       } else {
-        browserHistory.push('/');
+        console.log('location.state2', location.state);
+        history.push('/');
       }
     }
   });
