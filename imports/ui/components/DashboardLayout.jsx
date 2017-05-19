@@ -16,7 +16,8 @@ class DashboardLayout extends React.Component {
 
 
     render() {
-
+        //console.log('DashboardLayout=', this.props);
+        const {history} = this.props;
         return (
 
             <div className="DashboardLayout">
@@ -67,7 +68,7 @@ class DashboardLayout extends React.Component {
                             <NavItem eventKey={1} href="#" >Link1</NavItem>
                             <NavItem eventKey={2} href="#"  >Link2</NavItem>
                             <NavItem eventKey={3} href="#"  >Link3</NavItem>
-                            <NavItem eventKey={4} href="#" className='logOut'  title="Logout" onClick={ handleLogout }>
+                            <NavItem eventKey={4} href="#" className='logOut' title="Logout" onClick={()=> handleLogout(history)}>
                                <Glyphicon glyph="log-out" />
                             </NavItem>
                         </Nav>

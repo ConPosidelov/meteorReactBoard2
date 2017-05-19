@@ -12,16 +12,11 @@ class LeftToolBar extends React.Component {
              activeItem: 'cube1',
              pushSidebar: false
         };
-        this.handleItemClick= this.handleItemClick.bind(this)
-        this.pushSidebar= this.pushSidebar.bind(this)
     }
 
-    handleItemClick(e, { name }) {
-
-        this.setState({ activeItem: name });
-    }
-
-    pushSidebar(e, { name }) {
+    handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+ 
+    pushSidebar= (e, { name }) =>{
         const { toggleSidebar } = this.props;
         const { pushSidebar } = this.state;
 
@@ -30,7 +25,7 @@ class LeftToolBar extends React.Component {
     }
 
     render() {
-        //console.log('doc=', this.props);
+        //console.log('LeftToolBar=', this.props);
         const { activeItem, pushSidebar } = this.state;
 
         return (

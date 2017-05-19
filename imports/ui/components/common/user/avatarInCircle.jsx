@@ -2,7 +2,9 @@ import React from 'react';
 
 
 
-const avatarInCircle = ({ imgPath, size, color, float, border }) => {
+const avatarInCircle = (props) => {
+    console.log('avatarInCircle', props);
+    let {avatarSrc, size, color, float, border} = props;
     let content = '';
     if(!color) color = 'orange';
     if(!size) size = '40';
@@ -16,15 +18,16 @@ const avatarInCircle = ({ imgPath, size, color, float, border }) => {
     }
     if(border) style.border = border;
 
-    if(!imgPath) {
+    if(!avatarSrc) {
         let h = Math.floor(Math.random() * 360);
         let bgColor = `hsl(${h}, 80%, 80%)`;
-        style.backgroundColor = bgColor;
+        //style.backgroundColor = bgColor;
         let abc = 'qwertyuiopasdfghjklzxcvbnm';
         let abcLength = abc.length;
         content = abc[Math.floor(Math.random() * abcLength)];
     } else {
-        style.background = `url('${imgPath}') transparent center center no-repeat`;
+        style.background = `url('${avatarSrc}') transparent center center no-repeat`;
+        style.backgroundSize = 'cover';
     }
 
     if(float) {

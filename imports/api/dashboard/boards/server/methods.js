@@ -1,13 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import Boards from '../collections.js';
+import {palette, getRandomColor} from '../../../../common/palette.js';
 
-const getRandomColor = (bright) => {
-    let h = Math.floor(Math.random() * 360);
-    return `hsl(${h}, ${bright}%, ${bright}%)`;
-};
 const memberShema = {
-    color: getRandomColor(80),
+    
     cursorX: 0,
     cursorY: 0
 };
@@ -103,13 +100,16 @@ Meteor.methods({
 
         let oldBoard = Boards.find({_id: boardId }).fetch();
         let oldMembers = oldBoard[0].members;
-        let newMembers = oldMembers.map(item => {
+        let newMembers = oldMembers.map((item, index )=> {
             if(item.id === this.userId) {
                 item.active = true;
                 item.avatarSrc = avatarSrc;
-                //item.color = getRandomColor(80);
-                //item.cursorX = 0;
-                //item.cursorY = 0;
+                if(index > 15) {
+                    item.color = getRandomColor(80)
+                } else {
+                    item.color = palette[index].color
+                }
+                
                 return {...item, ...memberShema};
             } else {
                 return item

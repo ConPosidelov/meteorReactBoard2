@@ -23,10 +23,10 @@ const login = () => {
       //const location = history.location;
      // console.log('history', history);
       if (location.state && location.state.nextPathname) {
-        console.log('location.state1', location.state);
+        //console.log('location.state1', location.state);
         history.push(location.state.nextPathname);
       } else {
-        console.log('location.state2', location.state);
+        //console.log('location.state2', location.state);
         history.push('/');
       }
     }

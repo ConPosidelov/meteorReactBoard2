@@ -4,28 +4,37 @@ import {Row, Col, Glyphicon, Nav, NavItem } from 'react-bootstrap';
 import { Grid, Button, Icon, Menu, Segment, Divider, List} from 'semantic-ui-react';
 import handleLogout from '../../../modules/common/handleLogout.js';
 import AvatarInCircle from '../common/user/avatarInCircle.jsx';
+import MembersList from './MembersList.jsx';
 
 class TopMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
              activeItem: 'gamepad',
-
         };
-        this.handleItemClick= this.handleItemClick.bind(this)
-
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+      //console.log('BoardsLayout1=', this.props); 
+      //console.log('BoardsLayout1nextProps=', nextProps);
+      const {data} = this.props;
+      const {members} = data;
+       const {activeItem} = this.state;
+      if(activeItem !== nextState.activeItem) return true;      
+      return false
     }
 
-    handleItemClick(e, { name }) {
-
-        this.setState({ activeItem: name })
-    }
+    handleItemClick= (e, { name }) => this.setState({ activeItem: name });
 
 
     render() {
-        //console.log('doc=', this.props);
+        console.log('TopMenu=', this.props);
 
         const { activeItem, pushSidebar } = this.state;
+        const {history, data} = this.props;
+        const {match} = this.props;
+        const {params} = match;
+
+
 
         return (
 
@@ -60,7 +69,7 @@ class TopMenu extends React.Component {
                           </List>
                           <Nav className='bodyNav' bsStyle="pills" pullRight>
 
-                              <NavItem eventKey={1} href="#" className='logOut'  title="Logout" onClick={ handleLogout }>
+                              <NavItem eventKey={1} href="#" className='logOut' title="Logout" onClick={()=> handleLogout(history)}>
                                  <Glyphicon glyph="log-out" />
                               </NavItem>
                           </Nav>
@@ -90,33 +99,13 @@ class TopMenu extends React.Component {
 
                                       </Button>
                                  </List.Content>
-                                 <List.Content floated='left'>
-                                     <AvatarInCircle
-                                         size = {40}
-                                         border ={'solid 1px black'}
-                                     />
-                                 </List.Content>
-                                 <List.Content floated='left'>
-                                     <AvatarInCircle
-                                         size = {40}
-                                         border ={'solid 1px black'}
-                                         
-                                     />
-                                 </List.Content>
-
+                                                            
                               </List.Item>
 
+                              <MembersList params = {params}/>
+
+
                            </List>
-
-
-
-
-
-
-
-{/*
-
-*/}
 
 
             </div>

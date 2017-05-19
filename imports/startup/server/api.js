@@ -17,3 +17,4 @@ import '../../api/dashboard/boards/collections.js';
 
 import '../../api/boards/server/publications.js';
 import '../../api/boards/server/methods.js';
+import '../../api/boards/server/methodsService.js';

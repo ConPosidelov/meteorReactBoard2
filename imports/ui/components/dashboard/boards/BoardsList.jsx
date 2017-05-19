@@ -60,7 +60,7 @@ class BoardsList1 extends React.Component {
             console.log('props2', this.props);
 
             this.props.history.push(`/boards/${boardId}`);
-            //this.props.router.push(`/boards/${boardId}`);
+          
         });
 
     }
@@ -158,10 +158,6 @@ class BoardsList1 extends React.Component {
       );
     }
 }
-
-//BoardsList.contextTypes = {
-//   router: React.PropTypes.object
-//};
 
 
 
