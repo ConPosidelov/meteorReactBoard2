@@ -40,12 +40,11 @@ class TopMenu extends React.Component {
 
             <div className="topMenu">
 
+              <Link to="/dashboard"  className="toDashboard">
+                <Icon name='home' size='big'/>
+              </Link>
 
-                            <Link to="/dashboard"  className="toDashboard">
-                                <Icon name='home' size='big'/>
-
-                            </Link>
-                            <List horizontal relaxed className="topMenuTools">
+              <List horizontal relaxed className="topMenuLeftTools">
                                <List.Item>
                                    <List.Content floated='left'>
                                        <Button icon basic
@@ -60,52 +59,33 @@ class TopMenu extends React.Component {
                                     </List.Content>
 
                                </List.Item>
+              </List>
+
+              <Nav className='bodyNav' bsStyle="pills" pullRight>
+                <NavItem eventKey={1} href="#" className='logOut' title="Logout" onClick={()=> handleLogout(history)}>
+                  <Glyphicon glyph="log-out" />
+                </NavItem>
+              </Nav>
+
+              <List horizontal  floated='right'  className="topMenuRightTools">
+              {/*
+                <List.Item >
+                  <List.Content floated='left'>
+                    <Button icon basic
+                      name='cube4'
+                      size='big'
+                      active={activeItem === 'cube4'}
+                      onClick={this.handleItemClick}
+                      >
+                      <Icon name='cube' size='big'/>
+                    </Button>
+                  </List.Content>
+                </List.Item>
+              */}
+                <MembersList params = {params}/>
 
 
-
-
-
-
-                          </List>
-                          <Nav className='bodyNav' bsStyle="pills" pullRight>
-
-                              <NavItem eventKey={1} href="#" className='logOut' title="Logout" onClick={()=> handleLogout(history)}>
-                                 <Glyphicon glyph="log-out" />
-                              </NavItem>
-                          </Nav>
-
-                          <List horizontal  floated='right'>
-
-                             <List.Item >
-                                  <List.Content floated='left' >
-                                     <Button icon basic
-                                         name='cube3'
-                                         size='big'
-                                         active={activeItem === 'cube3'}
-                                         onClick={this.handleItemClick}
-                                     >
-                                       <Icon name='cube' size='big'/>
-
-                                      </Button>
-                                    </List.Content>
-                                 <List.Content floated='left'>
-                                     <Button icon basic
-                                         name='cube4'
-                                         size='big'
-                                         active={activeItem === 'cube4'}
-                                         onClick={this.handleItemClick}
-                                     >
-                                      <Icon name='cube' size='big'/>
-
-                                      </Button>
-                                 </List.Content>
-                                                            
-                              </List.Item>
-
-                              <MembersList params = {params}/>
-
-
-                           </List>
+              </List>
 
 
             </div>

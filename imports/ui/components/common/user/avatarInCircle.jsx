@@ -3,7 +3,7 @@ import React from 'react';
 
 
 const avatarInCircle = (props) => {
-    console.log('avatarInCircle', props);
+    //console.log('avatarInCircle', props);
     let {avatarSrc, size, color, float, border} = props;
     let content = '';
     if(!color) color = 'orange';
@@ -15,7 +15,7 @@ const avatarInCircle = (props) => {
         height : `${size}px`,
         fontSize: `${size * .7}px`,
         paddingTop: `${size * .35}px`
-    }
+    };
     if(border) style.border = border;
 
     if(!avatarSrc) {

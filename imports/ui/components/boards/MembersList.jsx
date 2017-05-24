@@ -7,6 +7,8 @@ import { List} from 'semantic-ui-react';
 import AvatarInCircle from '../common/user/avatarInCircle.jsx';
 import Boards from '../../../api/dashboard/boards/collections.js';
 
+
+
 class MembersList extends React.Component {
     constructor(props) {
         super(props);
@@ -17,12 +19,10 @@ class MembersList extends React.Component {
     shouldComponentUpdate(nextProps, nextState) {
         const {data} = this.props;
         const {members} = data;
-        //console.log('nextProps=', nextProps);
         const nextMembers = nextProps.data.members;
-
         let time = nextMembers[0].timestamp - members[0].timestamp;
-        console.log('time=', time);
-
+        // контроль интервала отметок
+        //console.log('time=', time);
         return true
     } 
     render() {
@@ -32,8 +32,7 @@ class MembersList extends React.Component {
 
         let membersList = members.map((item, index) => {
             if(item.active === false) return;
-           // let {active, avatarSrc, color, }
-           return (
+            return (
                   <List.Content floated='left' key={index} >
                     <AvatarInCircle
                         size = {40}
@@ -42,12 +41,10 @@ class MembersList extends React.Component {
                     />
                   </List.Content>
             );
-
         });
 
         return (
-
-            <List.Item>
+            <List.Item className='membersList'>
                 {membersList }
             </List.Item>
         );
@@ -57,58 +54,27 @@ class MembersList extends React.Component {
 
 let timeStamp = 99999999999999;// начальное значение (настоящее устанавливает сервер)
 const step = 10000;
+
 /*
 const timer = function(params){
-    setTimeout(function(){ 
-
+    let timerId = setTimeout(function tick() {
         Meteor.call('boards.SetTimestamp', params, (err, res) => {
             if(res) timeStamp = res
-            //console.log('timeStamp1=', timeStamp);    
+            console.log('TIME======', timeStamp);    
         });
-
-        setTimeout(function(){ 
-            timer(params)
-        }, step);
+        timerId = setTimeout(tick, step);
     }, step);
-}; 
-
-
-const timer = function(params){
-
-    let timerId = setTimeout(function tick() {
-
-      Meteor.call('boards.SetTimestamp', params, (err, res) => {
-            if(res) timeStamp = res
-            console.log('TIME======', timeStamp);    
-        });
-
-      timerId = setTimeout(tick, 10000);
-    }, 10000);
-
-
 };
+
 */
-const timer = function(params){
-
-    let timerId = setInterval(function () {
-
-      Meteor.call('boards.SetTimestamp', params, (err, res) => {
-            if(res) timeStamp = res
-            console.log('TIME======', timeStamp);    
+const boardLogOut = (boardId, userId)=> {
+    Meteor.call('boards.LogOut', boardId, userId,(err, res) => {
+            if(res) console.log('boards.LogOut=====', res);    
         });
-
-      
-    }, 10000);
-
-
-
-
 };
 
 const composer = ({params}, onData) => {
-    //const {params} = match;
     //console.log('composer-params', params);
-
     const subscription = Meteor.subscribe('boards.for.user');
   
     if (subscription.ready()) {
@@ -121,18 +87,15 @@ const composer = ({params}, onData) => {
                item.active = true;
                if(!item.timestamp) item.timestamp = timeStamp;
                timeStamp = item.timestamp; 
-                console.log('item.active=', item.active);
             }
-            if(item.timestamp) {
-               let checkTimestamp = item.timestamp + 2 * 10000; 
+            if(item.active && item.timestamp) {
+               let checkTimestamp = item.timestamp + 2 * step; 
                if (checkTimestamp > timeStamp){
                     item.active = true;
-                    console.log('item.active2=', item.active);
                } else {
                     item.active = false;
-                    console.log('item.active3=', item.active);
+                    boardLogOut(params.boards, item.id);
                }
-
                return item
             } else {
                item.active = false;
@@ -150,11 +113,8 @@ const MemberListWithData = composeWithTracker(composer, Loading)(MembersList);
 
 
 const WrapperComp = props => {
-    
     const {params} = props;
-    console.log('WrapperComp.params', params);
-    //отмечаемся на сервере
-    //timer(params.boards);
+    //console.log('WrapperComp.params', params);
     return <MemberListWithData {...props}/>
 };
     

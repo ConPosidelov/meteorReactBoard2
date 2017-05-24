@@ -94,12 +94,10 @@ Meteor.methods({
 
     'boards.logMember' (boardId) {
         check(boardId, String);
-        let userDoc = Meteor.users.find({_id: this.userId }).fetch();
-        let profileExt = userDoc[0].profileExt;
+        let profileExt = Meteor.users.find({_id: this.userId }).fetch()[0].profileExt;
         let avatarSrc = profileExt.avatarSrc;
 
-        let oldBoard = Boards.find({_id: boardId }).fetch();
-        let oldMembers = oldBoard[0].members;
+        let oldMembers = Boards.find({_id: boardId }).fetch()[0].members;
         let newMembers = oldMembers.map((item, index )=> {
             if(item.id === this.userId) {
                 item.active = true;
@@ -109,7 +107,6 @@ Meteor.methods({
                 } else {
                     item.color = palette[index].color
                 }
-                
                 return {...item, ...memberShema};
             } else {
                 return item
@@ -118,6 +115,23 @@ Meteor.methods({
         Boards.update(boardId, {$set: {members: newMembers}});
         //console.log('boards.logMember is OK');
         return 'boards.logMember is OK'
-        //return newMembers
-     }   
+        
+     },
+    'boards.LogOut' (boardId, id) {
+        check(boardId, String);
+        check(id, String);
+        
+        let oldMembers = Boards.find({_id: boardId }).fetch()[0].members;
+        let newMembers = oldMembers.map((item, index )=> {
+            if(item.id === id) {
+                item.active = false;
+                return item
+            } else {
+                return item
+            }
+        });
+        Boards.update(boardId, {$set: {members: newMembers}});
+        return 'boards.LogOut is OK'
+        
+     }  
 });    

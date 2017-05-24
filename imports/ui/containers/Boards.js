@@ -13,12 +13,9 @@ const composer = ({match}, onData) => {
     const subscription = Meteor.subscribe('boards.for.user');
   
     if (subscription.ready()) {
-        
         let doc = Boards.find({_id: params.boards}).fetch()[0];
-     
-        
+      
         let {members} = doc;
-        
         let newMembers = members.map(item => {
              item.timestamp = 0;
              item.active = true;
