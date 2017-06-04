@@ -17,13 +17,22 @@ class MembersList extends React.Component {
         };
     }
     shouldComponentUpdate(nextProps, nextState) {
-        const {data} = this.props;
-        const {members} = data;
+        const {members} = this.props.data;
         const nextMembers = nextProps.data.members;
-        let time = nextMembers[0].timestamp - members[0].timestamp;
-        // контроль интервала отметок
-        //console.log('time=', time);
-        return true
+        let countMembers = 0;
+        let countNextMembers = 0;
+        members.forEach((item, i)=>{
+            if(item.active) countMembers ++;
+        });
+        nextMembers.forEach((item, i)=>{
+            if(item.active) countNextMembers ++;
+        });
+        if(countMembers === countNextMembers){
+            return false
+        } else {
+            return true
+        }
+       
     } 
     render() {
         //console.log('MemberList=', this.props);
@@ -55,18 +64,6 @@ class MembersList extends React.Component {
 let timeStamp = 99999999999999;// начальное значение (настоящее устанавливает сервер)
 const step = 10000;
 
-/*
-const timer = function(params){
-    let timerId = setTimeout(function tick() {
-        Meteor.call('boards.SetTimestamp', params, (err, res) => {
-            if(res) timeStamp = res
-            console.log('TIME======', timeStamp);    
-        });
-        timerId = setTimeout(tick, step);
-    }, step);
-};
-
-*/
 const boardLogOut = (boardId, userId)=> {
     Meteor.call('boards.LogOut', boardId, userId,(err, res) => {
             if(res) console.log('boards.LogOut=====', res);    
@@ -75,11 +72,11 @@ const boardLogOut = (boardId, userId)=> {
 
 const composer = ({params}, onData) => {
     //console.log('composer-params', params);
-    const subscription = Meteor.subscribe('boards.for.user');
+    const subscription = Meteor.subscribe('boards.members', params.boards);
   
     if (subscription.ready()) {
         //console.log('timeStamp2=', timeStamp);
-        let doc = Boards.find({_id: params.boards}).fetch()[0];
+        let doc = Boards.find({_id: params.boards}, {fields: {members: 1}}).fetch()[0];
         let {members} = doc;
         let newMembers = members.map(item => {
            

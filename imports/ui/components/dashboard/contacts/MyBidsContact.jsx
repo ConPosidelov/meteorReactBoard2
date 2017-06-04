@@ -15,7 +15,7 @@ import Divider from 'material-ui/Divider';
 import Avatar from 'material-ui/Avatar';
 import {pinkA200, transparent} from 'material-ui/styles/colors';
 
-
+const IMGPATH = cv.IMGPATH;
 
 
 
@@ -50,7 +50,7 @@ class MyBidsContact extends React.Component {
                 <ListItem
                   primaryText={item.fullName +' ( '+item.nicName+' )'}
                   rightIcon={<ActionDelete color={pinkA200} onClick= {()=> this.delBid(item._id)}/>}
-                  leftAvatar={<Avatar src={item.avatarSrc}  size={40}/>}
+                  leftAvatar={<Avatar src={IMGPATH + item.avatarSrc}  size={40}/>}
 
                 />
                 <Divider inset={true} />

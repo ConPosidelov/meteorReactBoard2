@@ -1,15 +1,15 @@
 import { Mongo } from 'meteor/mongo';
 
-const Boards = new Mongo.Collection('Boards');
-export default Boards;
+const Messages = new Mongo.Collection('Messages');
+export default Messages;
 /*
-Boards.allow({
+Messages.allow({
   insert: () => true,
   update: () => true,
   remove: () => true,
 });
 
-Boards.deny({
+Messages.deny({
   insert: () => false,
   update: () => false,
   remove: () => false,

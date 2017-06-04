@@ -1,4 +1,5 @@
 import React from 'react';
+const IMGPATH = cv.IMGPATH;
 
 
 
@@ -26,7 +27,7 @@ const avatarInCircle = (props) => {
         let abcLength = abc.length;
         content = abc[Math.floor(Math.random() * abcLength)];
     } else {
-        style.background = `url('${avatarSrc}') transparent center center no-repeat`;
+        style.background = `url('${IMGPATH + avatarSrc}') transparent center center no-repeat`;
         style.backgroundSize = 'cover';
     }
 

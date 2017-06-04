@@ -16,6 +16,8 @@ const updateCursorPos = (outEl, curObj, tic)=>{
     const action = (e) =>{
         let dx = e.pageX - outEl.os.left;
         let dy = e.pageY - outEl.os.top;
+        curObj.xPx = dx;
+        curObj.yPx = dy;
         // переводим в проценты с округлением до тысячных
         curObj.x = (dx / outEl.width * 100000 ^ 0) / 1000;
         curObj.y = (dy / outEl.height * 100000 ^ 0) / 1000;
@@ -53,20 +55,15 @@ class MouseField extends React.Component {
         this.elProps = {}; // все в пикселях
         this.curObj = {};// все в процентах
         this.state = {
-            midleElStyle: {
-                width: 0,
-                height: 0,
-                top : 0,
-                left : 0
-            }
+           
         };
     }
     
    
     shouldComponentUpdate(nextProps, nextState) {
-        const {upTopMenu} = this.props;
+        //const {upTopMenu} = this.props;
 
-        return true
+        return false
     }
 
     componentDidMount() {
@@ -76,42 +73,48 @@ class MouseField extends React.Component {
         //elDimUpdate(el, this.elProps);
         elDimResizeUpdate (el, this.elProps, 300);//следим за ресайзом mouseField
         addCursorPos(el, this.elProps, boardId, 500);// сохраняем в базу позицию курсора
-        //let curObj = {};// все в процентах
         updateCursorPos(this.elProps, curObj, 30)// обновляем позицию курсора
 
-        let topMenuState = STORE.getTopMenu(boardId);
-        console.log('getTopMenu=', topMenuState);
-        
-        $('.mouseField').off("mousedown").on("mousedown", (e)=>{
+
+       $('.mouseField').off("mousedown").on("mousedown", (e)=>{
             let onePoint = {...curObj};
             e.preventDefault();
-            $(document).on("mousemove.mouseField", (e)=> {
-                let top, left;
-                let width = Math.abs(Math.abs(+curObj.x) - Math.abs(+onePoint.x));
-                let height = Math.abs(Math.abs(+curObj.y) - Math.abs(+onePoint.y));
-                let dx = +curObj.x - onePoint.x;
-                let dy = +curObj.y - onePoint.y;
-                dx > 0 ? left = onePoint.x : left = +onePoint.x - width;
-                dy > 0 ? top = onePoint.y :  top = +onePoint.y - height;
-                this.setState({
-                    midleElStyle: {
-                        width: `${width}%`,
-                        height: `${height}%`,
-                        top : `${top}%`,
-                        left : `${left}%`
-                    }
+            const {target} = e;
+            const dataId = target.getAttribute('data-id');
+            
+
+
+            const sub = STORE.getSubscription(dataId);//console.log('sub', sub);
+
+            if(sub && sub.data){
+                const {data:{pos:{top, left, unitPos}}} = sub;
+                const initialX = curObj.x;
+                const initialY = curObj.y;
+
+                $(document).on("mousemove.mouseField", (e)=> {
+                    let dx = curObj.x - initialX;
+                    let dy = curObj.y - initialY;
+                    let data = {
+                        top: +top + dy,
+                        left: +left + dx,
+                        unitPos: unitPos 
+                    };
+                    STORE.pushData(dataId, data); 
+             
                 });
 
-            });
+            }
         });
         $(document).on("mouseup", (e)=>{
             $(document).off("mousemove.mouseField");
           //console.log('mouseup');
-        });
-
+        });    
 
           
     }
+
+
+
 
     render() {
       // console.log('MouseField2=', this.props);
@@ -123,7 +126,8 @@ class MouseField extends React.Component {
             <div className='midleElement' style = {midleElStyle}></div>
         );
    
-        const wrapperProps= {
+        const wrapperProps1= {
+            dataId: 'id_1',
             pos: {
                 top: '20',
                 left: '40' 
@@ -131,14 +135,24 @@ class MouseField extends React.Component {
             height: '200',
             unit: 'px'
         };
-
+        const wrapperProps2= {
+            dataId: 'id_2',
+            pos: {
+                top: '40',
+                left: '60' 
+            },
+            height: '200',
+            unit: 'px'
+        };
 
         return (
             <div className='cursorSynchro mouseField'>
             
                 {/*midleElement*/}
-                {midleElement}
-                <UniversalWrapper {...wrapperProps} />
+              
+                <UniversalWrapper {...wrapperProps1} />
+
+                <UniversalWrapper {...wrapperProps2} />
             </div>
         );
     }

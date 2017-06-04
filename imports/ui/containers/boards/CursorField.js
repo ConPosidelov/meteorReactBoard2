@@ -3,10 +3,8 @@ import { composeWithTracker } from 'react-komposer';
 import { Meteor } from 'meteor/meteor';
 import Loading from '../../components/Loading.js';
 
-//import MouseField  from '../../components/boards/MouseField.jsx';
-import MouseField  from '../../components/boards/MouseField_New1.jsx';
+import CursorField  from '../../components/boards/CursorField.jsx';
 import Boards from '../../../api/dashboard/boards/collections.js';
-
 
 const composer = ({boards}, onData) => {
     //console.log('composer-params', boards);
@@ -18,8 +16,10 @@ const composer = ({boards}, onData) => {
         //console.log('doc2', doc);
         let {members} = doc;
         let newMembers = members.map(item => {
+         
             if(item.id !== Meteor.userId()){
-                return {
+                
+               return {
                     avatarSrc: item.avatarSrc,
                     active: item.active,
                     nicName: item.nicName,
@@ -33,11 +33,10 @@ const composer = ({boards}, onData) => {
 
         }); 
    
-        //onData(null, {members: newMembers});
-        onData(null, {});
+        onData(null, {members: newMembers});
     }
 };
 
-const WithTracker = composeWithTracker(composer, Loading)(MouseField);
+const WithTracker = composeWithTracker(composer, Loading)(CursorField);
 
 export default WithTracker;

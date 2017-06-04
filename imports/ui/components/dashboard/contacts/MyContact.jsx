@@ -6,7 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 //import injectTapEventPlugin from 'react-tap-event-plugin';
 //injectTapEventPlugin ();
 
-
+const IMGPATH = cv.IMGPATH;
 
 import {List, ListItem} from 'material-ui/List';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
@@ -42,7 +42,7 @@ class MyContact extends React.Component {
                 <ListItem
                   primaryText={item.fullName +' ( '+item.nicName+' )'}
                   rightIcon={<ActionGrade color={pinkA200} />}
-                  leftAvatar={<Avatar src={item.avatarSrc} size={40}/>}
+                  leftAvatar={<Avatar src={IMGPATH + item.avatarSrc} size={40}/>}
                   onClick={()=>this.props.clickContact(item)}
                 />
                 <Divider inset={true} />

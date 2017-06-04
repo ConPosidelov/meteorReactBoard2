@@ -10,20 +10,29 @@ const composer = ({match}, onData) => {
     const {params} = match;
     //console.log('composer-params',params);
 
-    const subscription = Meteor.subscribe('boards.for.user');
+    const subscription = Meteor.subscribe('boards.members', params.boards);
   
     if (subscription.ready()) {
-        let doc = Boards.find({_id: params.boards}).fetch()[0];
+        let doc = Boards.find({_id: params.boards}, {fields: {members: 1, name: 1}}).fetch()[0];
+        //console.log('doc1', doc);
       
-        let {members} = doc;
+        let {members, name} = doc;
+        let user = {};
         let newMembers = members.map(item => {
+             if(item.id === Meteor.userId()){
+                user.nicName = item.nicName;
+                user.avatarSrc = item.avatarSrc;
+                user.color = item.color;
+                user.boardName = name;
+             }   
              item.timestamp = 0;
              item.active = true;
              return item  
         }); 
+
         doc.members = newMembers;
         //console.log('BoardsLayout.composer.data', doc);    
-        onData(null, { data: doc });
+        onData(null, { data: user });
     }
 };
 const BoardsComp = composeWithTracker(composer, Loading)(BoardsLayout);

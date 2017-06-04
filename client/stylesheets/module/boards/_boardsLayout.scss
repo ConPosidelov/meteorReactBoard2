@@ -4,53 +4,115 @@
 .boardsLayout {
     width: 100%;
     position: relative;
+    height: 100vh;
     .topMenu {
-        width: 100%;
-        height: 75px;
-        padding: 15px 10px;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        transition: all 0.6s;
+        z-index: 99999;
         //background-color: $colorPrimaryL;
-        border-bottom: 1px solid $colorPrimaryD;
+        border-bottom: 1px solid $colorGrey-1;
         .toDashboard {
             display: block;
             float: left;
             margin: 0;
-            margin-top: 8px;
-            margin-left: 0px;
-            i {
-                text-decoration: none;
-
-                &:hover {
-                    text-decoration: none;
-                }
+            width: 62px;
+            height: 60px;
+            transition: all 0.6s;
+            background-color: rgba(255, 230, 0, 1);
+            //margin-top: 8px;
+            //margin-left: 0px;
+            .sidebar_brand-logo {
+                margin-left: 10px;
+                color: $colorDodgerBlue;
             }
         }
+        .boardName{
+            display: block;
+            float: left;
+            height: 30px;
+
+            padding-left: 30px;
+            padding-right: 20px;
+            font-size: 22px;
+            line-height: 1.7;
+            margin-right: -200px;
+        }
         .topMenuLeftTools {
-            margin-left: 200px;
+            margin-left: 30px;
+            float: left;
+            height: 20px;
+            margin-top: 35px;
+            .toolsItem{
+                float: left;
+                margin-right: 20px;
+                cursor: pointer;
+            }
            
         }
         .topMenuRightTools{
+            
             .membersList{
-
+                display: block;
+               margin-top: 7px;     
             }
         }
+        .userContainer{
+            
+            float: right;
+            min-width: 120px;
+            margin-left: 50px;
+            .userNav {
+                width: 100%;
+                height: 30px;
+            }
+            .userNic {
+                float: left;
+                height: 30px;
+                padding-left: 0px;
+                padding-right: 15px;
+                font-size: 13px;
+                line-height: 30px;
+                cursor: pointer;
 
-        .bodyNav {
+            }
             .logOut {
-                margin-left: 50px;
-                margin-top: -5px;
-       
-                a{
-                    font-size: 22px;
-                    color: $color3;
-                       
-                    &:hover {
-                        text-decoration: none;
-                        @include swing();
+                    height: 30px;
+                    float: right;
+                    margin-right: 10px;
+                    cursor: pointer;
+                    span{
+                        height: 30px;
+                        line-height: 30px;
+                        font-size: 16px;
+                        color: $color3;
+                           
+                        &:hover {
+                            text-decoration: none;
+                            @include swing();
+                        }
                     }
+                }
+
+            .userNavTwo {
+                width: 100%;
+                height: 30px;
+                .share{
+                    height: 30px;
+                  
+                    button {
+                        //float: left;
+                        font-size: 14px;
+                        padding: 5px 8px;
+                    }
+
                 }
             }
         }
-
         button {
             i {
                 color: $colorPrimaryD;
@@ -62,23 +124,236 @@
             }
         }
     }
+    .toolMenu {
+        position: absolute;
+        overflow: hidden;
+        left: 0px;
+        right: 0px;
+        top: 60px;
+        transition: all 0.6s;
+        height: 30px;
+        border-bottom: 1px solid $colorGrey-1;
+        .isOpenToolbar{
+            width: 30px;
+            height: 30px;
+            float: left;
+            margin-left: 15px;
+
+            cursor: pointer;
+            &:hover {
+                //background-color: $colorGrey-1;
+                @include swing();
+            }
+            span {
+                text-align: center;
+                height: 30px;
+                width: 30px;
+                line-height: 30px;
+                color: $color3;
+            }
+        }
+
+        .toolsListMain{
+            float: left;
+            margin-left: 40px;
+            height: 30px;
+            padding: 0 0px;
+            border-left: 1px solid $colorGrey-1;
+           
+            .section{
+                float: left;
+                height: 29px;
+                padding: 0 10px;
+                border-right: 1px solid $colorGrey-1;
+                cursor: pointer;
+                transition: all 0.6s;
+
+                &:hover {
+                    border: 1px solid $colorDodgerBlue;
+                    transition: all 0.6s;
+                    //@include rubberBand();
+                    //@include swing();
+                    span{
+                        //font-size: 20px;
+                        transition: all 0.6s;
+                    }
+                }
+                span {
+                    text-align: center;
+                    height: 29px;
+                    width: 30px;
+                    line-height: 30px;
+                    color: $color3;
+                    transition: all 0.6s;
+                }
+
+            }
+        }
+
+        .toolsListRight{
+            float: right;
+            margin-top: 4px;
+            .section{
+                padding: 0 3px;
+                float: right;
+                margin-right: 5px;
+                height: 22px;
+                i{
+                    height: 22px;
+                    line-height: 22px;
+                    i{
+                        height: 22px;
+                        line-height: 22px;  
+                    }
+                }
+            }
+        }
+        .section{
+            height: 29px;
+            padding: 0 10px;
+            border-right: 1px solid $colorGrey-1;
+            cursor: pointer;
+            transition: all 0.6s;
+
+            &.active {
+              // background-color: $colorGrey-05;
+               i{
+                  color: $colorGrey-2;   
+               }
+               
+            }
+
+            &:hover {
+                border: 1px solid $colorDodgerBlue;
+                transition: all 0.6s;
+               
+               // background-color: $colorGrey-05;  
+                span{
+                    //font-size: 20px;
+                    transition: all 0.6s;
+                }
+                i{
+                    margin: 0;
+                    //font-size: 20px;
+                    transition: all 0.6s;
+                }
+            }
+            span {
+                text-align: center;
+                height: 29px;
+                width: 30px;
+                line-height: 30px;
+                color: $color3;
+                transition: all 0.6s;
+            }
+            i{
+                margin: 0;
+                text-align: center;
+                height: 29px;
+                //width: 30px;
+                line-height: 30px;
+                font-size: 18px;
+                color: $color3;
+                transition: all 0.6s;
+
+                i{
+                    margin: 0;
+                    text-align: center;
+
+                }
+
+            }
+        }
+
+
+    }
+
+    &.collapsTopMenu {
+        .topMenu{
+           height: 30px;
+           transition: all 0.6s;
+           .toDashboard {
+                display: none;
+            }
+            .boardName{
+                display: none;
+            }
+            .topMenuLeftTools {
+                margin-left: 50px;
+               
+                height: 30px;
+                line-height: 35px;
+                margin-top: 0px;
+                transition: all 0.6s;
+                .toolsItem{
+                    
+                }
+               
+            }
+            .topMenuRightTools{
+            
+                .membersList{
+                   display: none;//---------------!!!
+                   margin-top: 7px;     
+                }
+            }
+            .userContainer{
+                .userNavTwo{
+                    display: none;
+                }
+            }
+
+
+
+        }
+        .toolMenu{
+            top: 30px;
+            transition: all 0.6s;
+        }
+        .boardsBody{
+            top: 60px;
+            transition: top 0.6s;
+        }
+    }
+
     .boardsBody {
-        width: 100%;
-        position: relative;
+        overflow: auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 90px;
+        background-color:  $colorGrey-100;
+        z-index: 99999;
+        transition: top 0.6s;
+        &.active {
+           .leftToolBar {
+               // width: 253px; 
+               margin-left: 0;
+               transition: all 0.8s;
+           }
+           .boardsBodyContent {
+                //left: 253px;
+                width: calc(100% - 253px);
+                transition: all 0.8s;
+           }  
+        }
+
         .leftToolBar {
             position: absolute;
             top: 0;
-            left: 0;
-            height: calc(100vh - 75px);
+            bottom: 0;
             width: 253px;
-            margin-left: -200px;
-            transition: margin 0.8s;
+            float: left;
+            margin-left: -193px;
             background-color: $colorGrey-100;
-            border-right: 1px solid $colorPrimaryD;
+            border-right: 1px solid $colorGrey-1;
+            transition: all 0.8s;
             z-index: 99999;
             &.active {
-               margin-left: 0;
-               transition: margin 0.8s; 
+              // width: 253px; 
+               //margin-left: 0;
+               //transition: margin 0.8s; 
             }
 
             .buttonGroup {
@@ -101,93 +376,65 @@
 
         }
         .boardsBodyContent {
-            
-            float: right;
-            width: calc(100% - 53px);
-            height: calc(100vh - 75px);
-            background-color: $colorSecondaryL;
+            float: left;
+            width: calc(100% - 60px);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background-color: $colorGrey-100;
             padding-top: 20px;
+            transition: all 0.8s;
+
+            .cursorSynchro {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                bottom: 0;
+                right: 0;
+            }
 
             .mouseField {
-                position: relative;
-                margin-top: -20px;
-                width: 100%;
-                height: calc(100vh - 75px);
-                z-index: 88888;
-                .mouseSwichList {
-                    
-                    position: absolute;
-                    right: 120px;
-                    top: 0;
-                    border: 1px solid #FF4500; 
-                    border-top: none; 
-                    background-color: #FF4500; 
-                    border-bottom-left-radius: 5px;
-                    border-bottom-right-radius: 5px; 
-                    .mouseSwichHeader{
-                        width: 40px;
-                        height: 20px;
-                        padding-left: 10px;
-                        text-align: center;
-                        cursor: pointer;
-                        i{
-                            color: #FFFAFA;
-                            
-                           margin-left: -3px;
-                           margin-top: -0px;
-                        }
-                    }
-                    .mouseSwichBody{
-                        position: absolute;
-                        top: 21px;
-                        right: 0;
-                        //width: 80px;
-                        height: 0;
-                        background-color: #FFFF;
-                       border: none;
-                       border-radius: 5px;
-                        .mouseSwich{
-                            display: none;
-                            //margin-top: 5px;
+                
+                z-index: 88;
+               
+            }
 
-                            height: 25px;
-                            padding-top: 3px;
-                            padding-left: 10px;
-                            padding-right: 5px;
-                            cursor: pointer;
-                            &:hover {
-                                background-color: #FFDAB9;
-                            }
-                            span {
-                                margin-right: 10px;
-                            }
-                        }
-                        &.active {
-                            height: auto;
-                            border: 1px solid #FFDAB9;
-                            .mouseSwich{
-                                display: block;
-                            }
-                        }
-                    }
-                }
+            .elementsField {
+                z-index: 88;
+                           
+            }
+            .cursorField {
+                z-index: 88;
                 .userMouse {
                     position: absolute;
+                    z-index: 88888;
                     transition: all 0.5s;
                     //transition: left 0.3s;
                     i {
-                        margin: 0;
-                        margin-left: -8px;
-                        margin-top: 0px;
+                        margin-left: -6px;
+                       
                     }
+                }           
+            }
+
+            .midleElement {
+                position: absolute;
+                z-index: 99999;
+                border: 2px solid #000080;
+            }
+
+            .universalWrapper{
+                position: absolute;
+                z-index: 99999;
+                .controlPoint {
+                    position: absolute;
+                    border-radius: 50%;
+                    border: 1px solid black;
+                    background-color: #FFFFFF;
                 }
-            }
 
-            .red {
-                background: red;
             }
-           
-
         }
     }
 }

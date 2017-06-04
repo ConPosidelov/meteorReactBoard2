@@ -16,34 +16,18 @@ class LeftToolBar extends React.Component {
 
     handleItemClick = (e, { name }) => this.setState({ activeItem: name });
  
-    pushSidebar= (e, { name }) =>{
-        const { toggleSidebar } = this.props;
-        const { pushSidebar } = this.state;
-
-        this.setState({ pushSidebar: !pushSidebar });
-        toggleSidebar();
-    }
-
+  
     render() {
         //console.log('LeftToolBar=', this.props);
         const { activeItem, pushSidebar } = this.state;
-
+        const {collapsToolbar} = this.props;
+       
         return (
 
 
-            <div className={!pushSidebar? "leftToolBar": "leftToolBar active"}>
+            <div className={collapsToolbar? "leftToolBar": "leftToolBar active"}>
 
                 <Button.Group basic vertical icon className= "buttonGroup">
-                 <Button
-                     className= "pushSidebarButton"
-                     name='bars'
-                     size='big'
-                     active={pushSidebar}
-                     onClick={this.pushSidebar}
-                 >
-                 {!pushSidebar? <Icon name='bars'  size='big'/>:<Icon name='arrow left' size='big'/>}
-
-                </Button>
 
                 <Button icon basic
                     name='cube1'

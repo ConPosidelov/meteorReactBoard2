@@ -1,4 +1,6 @@
 import React from 'react';
+const IMGPATH = cv.IMGPATH;
+
 
 
 //const fullName  = doc.profileExt.fullName;
@@ -21,7 +23,7 @@ const CardUser = ({userData}) => {
                     <img src="img/background-1.jpg" alt="..."/>
                 </div>
                 <div className="userAvatar">
-                    <img src={avatarSrc} alt="avatar"/>
+                    <img src={IMGPATH + avatarSrc} alt="avatar"/>
                 </div>
             </div>
             <div className="panel-body">

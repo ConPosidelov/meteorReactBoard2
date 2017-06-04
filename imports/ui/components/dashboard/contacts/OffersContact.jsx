@@ -13,7 +13,7 @@ import ActionGrade from 'material-ui/svg-icons/action/grade';
 import Divider from 'material-ui/Divider';
 import Avatar from 'material-ui/Avatar';
 import {pinkA200, transparent} from 'material-ui/styles/colors';
-
+const IMGPATH = cv.IMGPATH;
 
 
 class OffersContact extends React.Component {
@@ -46,7 +46,7 @@ class OffersContact extends React.Component {
                 <ListItem
                   primaryText={item.fullName +' ( '+item.nicName+' )'}
                   rightIcon={<ActionGrade color={pinkA200} />}
-                  leftAvatar={<Avatar src={item.avatarSrc}  size={40}/>}
+                  leftAvatar={<Avatar src={IMGPATH + item.avatarSrc}  size={40}/>}
                   onClick= {()=> this.acceptOffers(item._id)}
                 />
                 <Divider inset={true} />

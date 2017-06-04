@@ -5,6 +5,10 @@
 }
 
 //цвета
+$colorDodgerBlue: #1E90FF;
+$colorGrey-2: rgba(0,0,0,.18);
+$colorGrey-1: rgba(0,0,0,.12);
+$colorGrey-05: rgba(0,0,0,.08);
 $colorGrey-100: #f5f5f5;  // серый1
 $colorGrey-200: #eeeeee;  // серый2
 $colorGrey-300: #e0e0e0;  // серый3
@@ -43,3 +47,24 @@ $colorSecondaryD: #c75b39;  //вторичный
     background-size: 100% 100%;
 
 }
+.sidebar_brand-logo {
+                    font-size: 40px;
+                    width: 40px;
+                    height: 40px;
+                    //line-height: 75px;
+                    transform-origin: 50% 50% 50%;
+                    transform: rotate(45deg);
+                    float: left;
+                    margin-top: 10px;
+                    margin-left: 25px;
+                    
+                    cursor: pointer;
+                    &:hover{
+                        @include rotateIn(
+                            $duration: 1s,
+                            $fill: backwards,
+                            $count: 1,
+                            $function: ease
+                            );
+                    }
+                }

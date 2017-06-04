@@ -4,7 +4,7 @@ import { Row, Col, Glyphicon, Panel, Button } from 'react-bootstrap';
 import { Session } from 'meteor/session';
 //import {Images} from '../../../api/images/collections.js';
 
-const imgPath = '/home/cow/works/http/meteor-data/img/';
+const imgPath = cv.IMGPATH_HOME;
 const avatarSize = '100';
 
 
@@ -115,7 +115,7 @@ class LoadAvatarImages extends React.Component {
 
     render() {
         let currentUpload = this.state.currentUpload;
-        
+
         return (
 
 

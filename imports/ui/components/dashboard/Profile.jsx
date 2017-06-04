@@ -46,6 +46,8 @@ class Profile extends React.Component {
         }
 
     }
+     showAvatarePanel = () => this.setState({ showAvatarePanel: !this.state.showAvatarePanel });
+
 
     render() {
 
@@ -70,7 +72,7 @@ class Profile extends React.Component {
                 </Row>
                 <Row>
                     <Col lg={12} md={12}>
-                        <Button onClick={ ()=> this.setState({ showAvatarePanel: !this.state.showAvatarePanel })}>
+                        <Button onClick={this.showAvatarePanel}>
                           Show avatar with
                         </Button>
                         <Panel collapsible expanded={this.state.showAvatarePanel}>
