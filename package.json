@@ -1,7 +1,7 @@
 {
   "name": "application-name",
-  "version": "1.0.0",
-  "description": "Реакт приложение на метеор #1 ",
+  "version": "0.2.3",
+  "description": "Еemporary prototype #2.3",
   "scripts": {
     "start": "MONGO_URL=mongodb://localhost:27017/react2 meteor --port 3001 --settings settings-development.json",
     "test": "meteor test --driver-package practicalmeteor:mocha --port 5000",
