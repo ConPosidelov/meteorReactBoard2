@@ -1,12 +1,7 @@
 import React from 'react';
 import {Row, Col,  Panel} from 'react-bootstrap';
 
-// 3 строки обязательно для матириал УИ
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-//import injectTapEventPlugin from 'react-tap-event-plugin';
-//injectTapEventPlugin ();
-
-
 
 import {List, ListItem} from 'material-ui/List';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
@@ -19,9 +14,6 @@ const IMGPATH = cv.IMGPATH;
 class OffersContact extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-
-        };
         this.acceptOffers = this.acceptOffers.bind(this);
     }
 
@@ -30,16 +22,11 @@ class OffersContact extends React.Component {
         console.log("acceptOffers", id);
         Meteor.call('contact.offers.accept', id,  (err, res) => {
             console.log('accept=res', res);
-
         });
-
     }
 
     render() {
         const {dataList} = this.props;
-
-        //console.log("dataList", dataList);
-
         let showList = dataList.map((item, key) => {
             return (
             <div key = {'OffersItem_'+ key}>
@@ -68,8 +55,6 @@ class OffersContact extends React.Component {
       );
     }
 }
-
-
 
 
 
