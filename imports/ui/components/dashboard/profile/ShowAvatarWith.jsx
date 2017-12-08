@@ -5,9 +5,7 @@ import { Meteor } from 'meteor/meteor';
 const ShowAvatarWith = (props) => {
 
     const saveValue = (value) => {
-        //console.log(value);
         Meteor.call('users.profileExt2.update', value);
-        // тут надо проверять значения и модифицировать profileExt.avatarSrc
     }
 
     return (
