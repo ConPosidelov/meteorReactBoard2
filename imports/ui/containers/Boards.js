@@ -8,14 +8,10 @@ import Boards from '../../api/dashboard/boards/collections.js';
 
 const composer = ({match}, onData) => {
     const {params} = match;
-    //console.log('composer-params',params);
-
     const subscription = Meteor.subscribe('boards.members', params.boards);
   
     if (subscription.ready()) {
         let doc = Boards.find({_id: params.boards}, {fields: {members: 1, name: 1}}).fetch()[0];
-        //console.log('doc1', doc);
-      
         let {members, name} = doc;
         let user = {};
         let newMembers = members.map(item => {
@@ -31,7 +27,6 @@ const composer = ({match}, onData) => {
         }); 
 
         doc.members = newMembers;
-        //console.log('BoardsLayout.composer.data', doc);    
         onData(null, { data: user });
     }
 };
