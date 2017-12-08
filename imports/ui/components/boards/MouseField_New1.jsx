@@ -1,4 +1,3 @@
-//сдесь
 //  1- ловим мышь и сохраняем координаты в базу
 //  2- создаем временный элемент и работаем с ним до сохранения в базу
 //  3- сохраняем его в базу
@@ -21,7 +20,6 @@ const updateCursorPos = (outEl, curObj, tic)=>{
         // переводим в проценты с округлением до тысячных
         curObj.x = (dx / outEl.width * 100000 ^ 0) / 1000;
         curObj.y = (dy / outEl.height * 100000 ^ 0) / 1000;
-        //console.log('curObj.x', curObj.x);  
     };
     const actionTic = throttle(action, tic);
     $(document).on("mousemove", actionTic); 
@@ -34,15 +32,11 @@ const addCursorPos = (el, outEl, boardId, tic)=>{
         outEl.os = el.offset();
         let dx = e.pageX - outEl.os.left;
         let dy = e.pageY - outEl.os.top;
-        //console.log('outEl.os.top=', outEl.os.top); 
-
-        //console.log('dy=', dy);
-        
+          
         // переводим в проценты с округлением до тысячных
         let dxPt = (dx / outEl.width * 100000 ^ 0) / 1000;
         let dyPt = (dy / outEl.height * 100000 ^ 0) / 1000;
-        //console.log('outEl.width=', outEl.width);
-        //console.log('dxPt=', dxPt);  
+      
         Meteor.call('boards.addCursorPos', boardId, dxPt, dyPt);
     };
     const actionTic = throttle(action, tic);
@@ -54,15 +48,10 @@ class MouseField extends React.Component {
         super(props);
         this.elProps = {}; // все в пикселях
         this.curObj = {};// все в процентах
-        this.state = {
-           
-        };
     }
-    
-   
+     
     shouldComponentUpdate(nextProps, nextState) {
         //const {upTopMenu} = this.props;
-
         return false
     }
 
@@ -81,10 +70,7 @@ class MouseField extends React.Component {
             e.preventDefault();
             const {target} = e;
             const dataId = target.getAttribute('data-id');
-            
-
-
-            const sub = STORE.getSubscription(dataId);//console.log('sub', sub);
+            const sub = STORE.getSubscription(dataId);
 
             if(sub && sub.data){
                 const {data:{pos:{top, left, unitPos}}} = sub;
@@ -109,15 +95,11 @@ class MouseField extends React.Component {
             $(document).off("mousemove.mouseField");
           //console.log('mouseup');
         });    
-
-          
+        
     }
 
 
-
-
     render() {
-      // console.log('MouseField2=', this.props);
 
         const {midleElStyle} = this.state;
         const {members} = this.props; 
