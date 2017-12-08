@@ -7,40 +7,19 @@ import LoadAvatarImages  from '../../../containers/dashboard/profile/LoadAvatarI
 
 
 class LoadAvatarPanel extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        };
-
-
-    }
-
-
+   
     render() {
-
         return (
-
-
             <Row>
                 <Col lg={8} md={8}>
-
-                   {/* <AvatarImages/>*/}
                    <AvatarImages/>
-
                 </Col>
-
                 <Col lg={4} md={4}>
-
                     <LoadAvatarImages/>
-
                 </Col>
-
             </Row>
         );
-
     }
-
 }
 
 export default  LoadAvatarPanel ;
