@@ -18,17 +18,12 @@ class LeftToolBar extends React.Component {
  
   
     render() {
-        //console.log('LeftToolBar=', this.props);
         const { activeItem, pushSidebar } = this.state;
         const {collapsToolbar} = this.props;
        
         return (
-
-
             <div className={collapsToolbar? "leftToolBar": "leftToolBar active"}>
-
                 <Button.Group basic vertical icon className= "buttonGroup">
-
                 <Button icon basic
                     name='cube1'
                     size='big'
@@ -49,11 +44,9 @@ class LeftToolBar extends React.Component {
                   </Button>
                </Button.Group>
 
-
             </div>
         );
     }
-
 };
 
 
