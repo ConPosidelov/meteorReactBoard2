@@ -11,15 +11,11 @@ class AvatarImages extends React.Component {
         this.state = {
             currentUpload: false
         };
-
     }
-
 
     saveAvatar = (src) =>{
         Meteor.call('users.profileExt3.update', src);
-
     }
-
 
     render() {
 
