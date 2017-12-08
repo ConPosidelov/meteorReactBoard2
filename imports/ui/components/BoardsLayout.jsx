@@ -16,8 +16,7 @@ const timerF = function(params){
     timerId = setInterval(function () {
       Meteor.call('boards.SetTimestamp', params, (err, res) => {
             if(res) timeStamp = res
-            //console.log('TIME======', timeStamp);    
-        });
+      });
     }, step);
 };
 const boardLogOut = (boardId, userId)=> {
@@ -36,7 +35,6 @@ class BoardsLayout extends Component {
             collapsTopMenu: true,
             collapsToolbar: true,
             onMouses: false
-           
         };
     }
     
@@ -81,7 +79,6 @@ class BoardsLayout extends Component {
     }
 
     render() {
-        //console.log('BoardsLayout2=', this.props);
         const { collapsTopMenu, collapsToolbar, onMouses } = this.state;
         const {boards} = this.props.match.params;
 
@@ -95,32 +92,15 @@ class BoardsLayout extends Component {
                     <LeftToolBar  className='leftToolBar' collapsToolbar= {collapsToolbar} {...this.props}/>
 
                     <div className='boardsBodyContent '>
-                        {/*<CursorField  match= {this.props.match}/>*/}
                         <CursorField  boards= {boards} onMouses= {onMouses} />
                         <MouseField  boards= {boards} upTopMenu= {collapsTopMenu}/>
-                        {/*<ElementsField {...this.props} />*/}
-                        
+                                          
                     </div>
-                     
-
-
-
-
                 </div>
             </div>
         );
     }
 
 };
-/*
-BoardsLayout.onLeave = function({params}){
 
-    console.log('BoardsLayout.onLeave', params);
-    let boardId = params.boards;
-    Meteor.call('boards.LeaveMember', boardId,  (err, res) => {
-        console.log('LeaveMember', res);
-    });
-};
-
-*/
 export default BoardsLayout;
