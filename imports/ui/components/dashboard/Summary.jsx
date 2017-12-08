@@ -5,10 +5,7 @@ import { Link } from 'react-router';
 class Summary extends React.Component {
 
     render() {
-     
-        return (
-
-
+         return (
          <div className='bodyContent'>   
                Summary
          </div>
