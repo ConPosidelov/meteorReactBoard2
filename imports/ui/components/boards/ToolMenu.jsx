@@ -6,9 +6,6 @@ import { Grid, Icon, Menu, Segment, Divider, List} from 'semantic-ui-react';
 import STORE from '../../states/boards.js';
 
 
-
-
-
 class ToolMenu extends React.Component {
     constructor(props) {
         super(props);
@@ -26,9 +23,7 @@ class ToolMenu extends React.Component {
     shouldComponentUpdate(nextProps, nextState) {
       return true
     }
-    componentDidMount() {
-      
-    }
+    
 
     handleItemClick= (e, { name }) =>{
       this.setState({ activeItem: name });
@@ -36,29 +31,26 @@ class ToolMenu extends React.Component {
      
 
     }  
-    upTopMenu = () =>{
+    upTopMenu = () => {
       const {upTopMenu} = this.state;
       this.setState({ upTopMenu: !upTopMenu });
     }
-    openToolbar= ()=> {
+    openToolbar= () => {
       const {openToolbar} = this.state;
       this.setState({ openToolbar: !openToolbar });
     }
-    onMouses = ()=> {
+    onMouses = () => {
       const {onMouses} = this.state;
       this.setState({ onMouses: !onMouses });
     }
 
     render() {
-        //console.log('ToolMenu=', this.props);
-
+  
         const {openToolbar, upTopMenu, onMouses, activeItem} = this.state;
         
         const {history, data, fromToolMenu} = this.props;
         const {match} = this.props;
         const {params} = match;
-
-
 
         return (
 
