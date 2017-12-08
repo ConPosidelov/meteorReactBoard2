@@ -1,12 +1,8 @@
 import React from 'react';
 const IMGPATH = cv.IMGPATH;
 
-
-
-//const fullName  = doc.profileExt.fullName;
 const CardUser = ({userData}) => {
 
-   //console.log('CardUser=', userData);
     let profile = userData.profileExt || '';
     let fullName = profile.fullName || 'fullName';
     let avatarSrc = profile.avatarSrc ;
