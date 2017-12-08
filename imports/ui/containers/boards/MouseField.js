@@ -9,13 +9,10 @@ import Boards from '../../../api/dashboard/boards/collections.js';
 
 
 const composer = ({boards}, onData) => {
-    //console.log('composer-params', boards);
     const subscription = Meteor.subscribe('boards.members', boards);
   
     if (subscription.ready()) {
-        //console.log('timeStamp2=', timeStamp);
         let doc = Boards.find({_id: boards}, {fields: {members: 1}}).fetch()[0];
-        //console.log('doc2', doc);
         let {members} = doc;
         let newMembers = members.map(item => {
             if(item.id !== Meteor.userId()){
@@ -32,8 +29,6 @@ const composer = ({boards}, onData) => {
             }
 
         }); 
-   
-        //onData(null, {members: newMembers});
         onData(null, {});
     }
 };
