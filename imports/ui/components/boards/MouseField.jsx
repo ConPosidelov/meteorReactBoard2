@@ -1,4 +1,3 @@
-//сдесь
 //  1- ловим мышь и сохраняем координаты в базу
 //  2- создаем временный элемент и работаем с ним до сохранения в базу
 //  3- сохраняем его в базу
@@ -19,7 +18,6 @@ const updateCursorPos = (outEl, curObj, tic)=>{
         // переводим в проценты с округлением до тысячных
         curObj.x = (dx / outEl.width * 100000 ^ 0) / 1000;
         curObj.y = (dy / outEl.height * 100000 ^ 0) / 1000;
-        //console.log('curObj.x', curObj.x);  
     };
     const actionTic = throttle(action, tic);
     $(document).on("mousemove", actionTic); 
@@ -32,15 +30,11 @@ const addCursorPos = (el, outEl, boardId, tic)=>{
         outEl.os = el.offset();
         let dx = e.pageX - outEl.os.left;
         let dy = e.pageY - outEl.os.top;
-        //console.log('outEl.os.top=', outEl.os.top); 
-
-        //console.log('dy=', dy);
-        
+               
         // переводим в проценты с округлением до тысячных
         let dxPt = (dx / outEl.width * 100000 ^ 0) / 1000;
         let dyPt = (dy / outEl.height * 100000 ^ 0) / 1000;
-        //console.log('outEl.width=', outEl.width);
-        //console.log('dxPt=', dxPt);  
+         
         Meteor.call('boards.addCursorPos', boardId, dxPt, dyPt);
     };
     const actionTic = throttle(action, tic);
@@ -62,10 +56,8 @@ class MouseField extends React.Component {
         };
     }
     
-   
     shouldComponentUpdate(nextProps, nextState) {
         const {upTopMenu} = this.props;
-
         return true
     }
 
@@ -76,16 +68,15 @@ class MouseField extends React.Component {
         //elDimUpdate(el, this.elProps);
         elDimResizeUpdate (el, this.elProps, 300);//следим за ресайзом mouseField
         addCursorPos(el, this.elProps, boardId, 500);// сохраняем в базу позицию курсора
-        //let curObj = {};// все в процентах
         updateCursorPos(this.elProps, curObj, 30)// обновляем позицию курсора
 
         let topMenuState = STORE.getTopMenu(boardId);
-        console.log('getTopMenu=', topMenuState);
+        //console.log('getTopMenu=', topMenuState);
         
-        $('.mouseField').off("mousedown").on("mousedown", (e)=>{
+        $('.mouseField').off("mousedown").on("mousedown", (e) => {
             let onePoint = {...curObj};
             e.preventDefault();
-            $(document).on("mousemove.mouseField", (e)=> {
+            $(document).on("mousemove.mouseField", (e) => {
                 let top, left;
                 let width = Math.abs(Math.abs(+curObj.x) - Math.abs(+onePoint.x));
                 let height = Math.abs(Math.abs(+curObj.y) - Math.abs(+onePoint.y));
@@ -104,18 +95,14 @@ class MouseField extends React.Component {
 
             });
         });
-        $(document).on("mouseup", (e)=>{
+        $(document).on("mouseup", (e) => {
             $(document).off("mousemove.mouseField");
           //console.log('mouseup');
         });
-
-
-          
+         
     }
 
     render() {
-      // console.log('MouseField2=', this.props);
-
         const {midleElStyle} = this.state;
         const {members} = this.props; 
          
@@ -135,8 +122,6 @@ class MouseField extends React.Component {
 
         return (
             <div className='cursorSynchro mouseField'>
-            
-                {/*midleElement*/}
                 {midleElement}
                 <UniversalWrapper {...wrapperProps} />
             </div>
