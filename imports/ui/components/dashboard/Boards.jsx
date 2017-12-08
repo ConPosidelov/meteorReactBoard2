@@ -13,9 +13,6 @@ class Boards extends React.Component {
     }
     render() {
         const {userData} = this.props;
-        //console.log('userdata', userData);
-        //let ddd = boards[2].createdAt.toLocaleString('ru', {year: '2-digit', month: '2-digit',day: '2-digit'});
-        //console.log('ddd', ddd);
         return (
 
          <div className='dashboardBoards'>
