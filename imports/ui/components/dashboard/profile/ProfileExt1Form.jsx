@@ -12,21 +12,16 @@ const resetForm = (obj) => {
     }
 };
 
-
 class ProfileExt1Form  extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
           isNicName: true,
           warning: ''
         };
-        this.submitHdlr = this.submitHdlr.bind(this);
-        this.changeNicName= this.changeNicName.bind(this);
-        this.getValidationState= this.getValidationState.bind(this);
     }
 
-    getValidationState() {
+    getValidationState = () => {
         if(this.state.warning !== '' ) {
             return 'error'
         } else {
@@ -34,9 +29,8 @@ class ProfileExt1Form  extends React.Component {
         }
     }
 
-    submitHdlr(e) {
+    submitHdlr = (e) => {
         e.preventDefault();
-
         let inp = this.i;
         let doc = {};
 
@@ -60,29 +54,23 @@ class ProfileExt1Form  extends React.Component {
         }
     }
 
-    changeNicName (e){
+    changeNicName = (e) => {
         let val = e.target.value;
         this.setState({warning: ''});
         if(val.length > 0 && ( val.length < 4 || val.charAt(0) !== '@')) {
             this.setState({warning: 'It requires a minimum of 4 characters & first @'});
         } else {
+            Meteor.call('users.profileExt1.check', val, (err, res) => {
+              if(res === 'notUnique') {
+                 this.setState({isNicName: false});
+                 this.setState({warning: 'This nicName already exist !!!'});
 
-
-        Meteor.call('users.profileExt1.check', val, (err, res) => {
-            if(res === 'notUnique') {
-                this.setState({isNicName: false});
-                this.setState({warning: 'This nicName already exist !!!'});
-
-            } else {
-                this.setState({isNicName: true});
-                this.setState({warning: ''});
-            }
-
-        });
-
+              } else {
+                 this.setState({isNicName: true});
+                 this.setState({warning: ''});
+              }
+            });
         }
-
-
     }
 
     render() {
