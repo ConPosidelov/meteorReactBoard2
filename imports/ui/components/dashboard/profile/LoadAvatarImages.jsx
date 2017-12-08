@@ -2,7 +2,6 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Row, Col, Glyphicon, Panel, Button } from 'react-bootstrap';
 import { Session } from 'meteor/session';
-//import {Images} from '../../../api/images/collections.js';
 
 const imgPath = cv.IMGPATH_HOME;
 const avatarSize = '100';
@@ -17,14 +16,10 @@ class LoadAvatarImages extends React.Component {
             uploading: [],
             progress: 0
         };
-
         this.inputFile = this.inputFile.bind(this);
-
     }
 
     inputFile (e) {
-
-        //const UserImages = Images;
         const UserImages = this.props.AllImages;
         const self = this;
         e.preventDefault();
@@ -46,7 +41,7 @@ class LoadAvatarImages extends React.Component {
                         type: 'avatar',
                         createdAt: currentDate
                     }
-                 //allowWebWorkers: true // If you see issues with uploads, change this to false
+            
                 }, false);
 
                 self.setState({
@@ -118,7 +113,6 @@ class LoadAvatarImages extends React.Component {
 
         return (
 
-
                     <Panel header='Or upload a new' bsStyle="info">
 
                         {currentUpload ?
@@ -134,9 +128,7 @@ class LoadAvatarImages extends React.Component {
                             </div>
                         }
 
-
                     </Panel>
-
 
         );
 
