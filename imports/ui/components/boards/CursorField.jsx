@@ -1,4 +1,4 @@
-//сдесь мы только рендерим курсоры(указатели мыши)всех участников кроме собственного
+//рендерим курсоры(указатели мыши)всех участников кроме собственного
 
 import React ,{ Component }from 'react';
 import { Meteor } from 'meteor/meteor';
@@ -33,13 +33,10 @@ class CursorField extends React.Component {
     }
 
     render() {
-        //console.log('CursorField=', this.props);
         const {members, onMouses} = this.props; 
           
         const mouseList = members.map((item, index) => {
             if(item.active && onMouses){
-                //const {cursorX, cursorY, color} = item;
-                console.log('cursorY=', cursorY);
                 return (
                     <UserMouse key={index} cursorX= {cursorX} cursorY= {cursorY} color= {color} />
                 );
