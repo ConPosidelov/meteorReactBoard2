@@ -21,4 +21,3 @@ Meteor.methods({
         
 });
 
-//http://192.168.1.101:3001/boards/T4QEb5ASXpbX2Wv9R
