@@ -10,12 +10,7 @@ import Boards from '../../../api/dashboard/boards/collections.js';
 
 
 class MembersList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            
-        };
-    }
+
     shouldComponentUpdate(nextProps, nextState) {
         const {members} = this.props.data;
         const nextMembers = nextProps.data.members;
@@ -35,7 +30,6 @@ class MembersList extends React.Component {
        
     } 
     render() {
-        //console.log('MemberList=', this.props);
         const {data} = this.props;
         const {members} = data;
 
@@ -71,11 +65,11 @@ const boardLogOut = (boardId, userId)=> {
 };
 
 const composer = ({params}, onData) => {
-    //console.log('composer-params', params);
+    
     const subscription = Meteor.subscribe('boards.members', params.boards);
   
     if (subscription.ready()) {
-        //console.log('timeStamp2=', timeStamp);
+        
         let doc = Boards.find({_id: params.boards}, {fields: {members: 1}}).fetch()[0];
         let {members} = doc;
         let newMembers = members.map(item => {
@@ -101,7 +95,7 @@ const composer = ({params}, onData) => {
             
         }); 
         doc.members = newMembers;
-        //console.log('BoardsLayout.newdata', doc);
+        
         onData(null, { data: doc });
     }
 };
@@ -111,7 +105,6 @@ const MemberListWithData = composeWithTracker(composer, Loading)(MembersList);
 
 const WrapperComp = props => {
     const {params} = props;
-    //console.log('WrapperComp.params', params);
     return <MemberListWithData {...props}/>
 };
     
