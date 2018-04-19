@@ -1,16 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
-//import SimpleSchema from 'simpl-schema';
-//
+
 export const Schema = {};
 
 // User
 
-
 Schema.UserProfileExt1 = new SimpleSchema({
 
     nicName: {
-
         type: String,
         optional: true
         /*
@@ -48,20 +45,15 @@ Schema.UserProfileExt1 = new SimpleSchema({
         type: String,
         optional: true,
         max: 100,
-
     }
-
 });
-
 
 Schema.UserProfileExt2 = new SimpleSchema({
     showAvatar: {
         type: String,
         optional: true
     }
-
 });
-
 
 Schema.User = new SimpleSchema({
     username: {
