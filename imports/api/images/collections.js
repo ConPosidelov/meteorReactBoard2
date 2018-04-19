@@ -3,10 +3,7 @@ import { FilesCollection } from 'meteor/ostrio:files';
 
 
 export const Images = new FilesCollection({
-  //debug: true,
-  //storagePath: process.env.PWD +'/public/imgdata/',
   storagePath: '/home/cow/works/http/meteor-data/img',
-  //storagePath: '',
   collectionName: 'Images2',
   allowClientCode: false, // Disallow remove files from Client
   onBeforeUpload: function (file) {
@@ -17,6 +14,4 @@ export const Images = new FilesCollection({
       return 'Please upload image, with size equal or less than 4MB';
     }
   }
-
-
 });
