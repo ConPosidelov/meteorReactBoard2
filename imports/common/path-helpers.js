@@ -1,5 +1,4 @@
 //
-//
 const imgPath = 'http://192.168.1.101/meteor-data/img/';
 Template.registerHelper('IMGPATH', () => imgPath);
 //
