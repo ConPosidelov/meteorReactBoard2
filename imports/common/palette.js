@@ -1,6 +1,3 @@
-//
-
-
 export const palette = [
    {
     name: 'red',
@@ -68,10 +65,7 @@ export const palette = [
    }
 ];
 
-
-
 export const getRandomColor = (bright) => {
-
     let h = Math.floor(Math.random() * 360);
     return `hsl(${h}, ${bright}%, ${bright}%)`;
 };
