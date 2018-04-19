@@ -6,7 +6,7 @@ Meteor.methods({
     'boards.SetTimestamp' (boardId) {
         check(boardId, String);
         let timestamp;
-        let oldBoard = Boards.find({_id: boardId }).fetch()[0];
+        let oldBoard = Boards.find({ _id: boardId }).fetch()[0];
         if(!oldBoard) return 0;
         let oldMembers = oldBoard.members;
         let newMembers = oldMembers.map(item => {
@@ -19,7 +19,7 @@ Meteor.methods({
                 return item
             }
         }); 
-        Boards.update(boardId, {$set: {members: newMembers}});   
+        Boards.update(boardId, { $set: { members: newMembers } });   
         return timestamp
      },
      'boards.addCursorPos' (boardId, dx, dy) {
@@ -27,7 +27,7 @@ Meteor.methods({
         check(dx, Number);
         check(dy, Number);
 
-        let oldBoard = Boards.find({_id: boardId }).fetch()[0];
+        let oldBoard = Boards.find({ _id: boardId }).fetch()[0];
         if(!oldBoard) return 0;
         let oldMembers = oldBoard.members;
         let newMembers = oldMembers.map(item => {
@@ -39,7 +39,7 @@ Meteor.methods({
                 return item
             }
         }); 
-        Boards.update(boardId, {$set: {members: newMembers}});   
+        Boards.update(boardId, { $set: { members: newMembers } });   
         return dx
 
      }
