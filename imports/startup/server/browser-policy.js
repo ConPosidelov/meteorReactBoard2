@@ -7,6 +7,5 @@ Meteor.startup( () => {
   BrowserPolicy.content.allowOriginForAll('*.gstatic.com');
   BrowserPolicy.content.allowImageOrigin( 'http://192.168.1.101');
   BrowserPolicy.content.allowImageOrigin( 'http://192.168.1.100');
-   BrowserPolicy.content.allowDataUrlForAll();;
-  //console.log('BrowserPolicy');
+  BrowserPolicy.content.allowDataUrlForAll();;
 });
