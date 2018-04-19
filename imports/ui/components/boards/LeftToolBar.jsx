@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {Row, Col } from 'react-bootstrap';
-import { Grid, Button, Icon, Menu, Segment, Divider, List} from 'semantic-ui-react';
-
+import { Row, Col } from 'react-bootstrap';
+import { Grid, Button, Icon, Menu, Segment, Divider, List } from 'semantic-ui-react';
 
 
 class LeftToolBar extends React.Component {
@@ -19,27 +18,27 @@ class LeftToolBar extends React.Component {
   
     render() {
         const { activeItem, pushSidebar } = this.state;
-        const {collapsToolbar} = this.props;
+        const { collapsToolbar } = this.props;
        
         return (
-            <div className={collapsToolbar? "leftToolBar": "leftToolBar active"}>
-                <Button.Group basic vertical icon className= "buttonGroup">
+            <div className={ collapsToolbar? "leftToolBar": "leftToolBar active" }>
+                <Button.Group basic vertical icon className="buttonGroup">
                 <Button icon basic
-                    name='cube1'
-                    size='big'
+                    name="cube1"
+                    size="big"
                     active={activeItem === 'cube1'}
                     onClick={this.handleItemClick}
                 >
-                  <Icon name='cube' size='big'/>
+                  <Icon name="cube" size="big"/>
 
                  </Button>
                  <Button icon basic
-                     name='cube2'
-                     size='big'
+                     name="cube2"
+                     size="big"
                      active={activeItem === 'cube2'}
                      onClick={this.handleItemClick}
                  >
-                   <Icon name='cube' size='big'/>
+                   <Icon name="cube" size="big"/>
 
                   </Button>
                </Button.Group>
