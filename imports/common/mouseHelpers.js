@@ -1,6 +1,4 @@
-//
-
-// тормозилка (от Кантора)
+//throttle
 export const throttle = function (func, ms) {
     let isThrottled = false,
         savedArgs,
@@ -24,7 +22,7 @@ export const throttle = function (func, ms) {
     return wrapper;
 };
 
-// обновление размеров элемента при ресайзе
+// updating the size of an element when resizing
 
 export const elDimResizeUpdate = (el, elDim, tic) => {
     elDim.os = el.offset();
@@ -37,14 +35,11 @@ export const elDimResizeUpdate = (el, elDim, tic) => {
     };
     const resizeTic = throttle(resize, tic);
     $(window).off("resize").on("resize", resizeTic);
-
 };
 
-// обновление размера элемента 
+// Update the size of an element 
 export const elDimUpdate = (el, elDim) => {
     elDim.os = el.offset();
     elDim.width = el.outerWidth();
     elDim.height = el.outerHeight();
-   //console.log('elDim.height1=', elDim.height);
-    
 };
