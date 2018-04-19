@@ -1,19 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-
 class Summary extends React.Component {
-
     render() {
          return (
-         <div className='bodyContent'>   
+           <div className="bodyContent">   
                Summary
-         </div>
-
+           </div>
         );
-
     }
-
 }
 
 export default Summary;
