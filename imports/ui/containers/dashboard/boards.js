@@ -3,9 +3,6 @@ import { Meteor } from 'meteor/meteor';
 import Loading from '../../components/Loading.js';
 import Boards from '../../components/dashboard/Boards.jsx';
 
-
-
-
 const composer = ({ params }, onData) => {
   const subscription = Meteor.subscribe('user.boards&contacts');
 
