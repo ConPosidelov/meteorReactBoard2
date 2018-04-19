@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Row, Col, Glyphicon, Panel, Button, Tab, Nav, NavItem } from 'react-bootstrap';
+import { Row, Col, Glyphicon, Panel, Button, Tab, Nav, NavItem } from 'react-bootstrap';
 import AddBoard  from '../../components/dashboard/boards/AddBoard.jsx';
 import BoardsList  from '../../components/dashboard/boards/BoardsList.jsx';
 
@@ -15,10 +15,10 @@ class Boards extends React.Component {
         const {userData} = this.props;
         return (
 
-         <div className='dashboardBoards'>
+           <div className="dashboardBoards">
                <AddBoard/>
-               <BoardsList userData = {userData}/>
-         </div>
+               <BoardsList userData={userData}/>
+           </div>
         );
     }
 }
