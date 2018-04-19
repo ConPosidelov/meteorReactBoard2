@@ -6,13 +6,13 @@ import Loading from '../components/Loading.js';
 import BoardsLayout from '../components/BoardsLayout.jsx';
 import Boards from '../../api/dashboard/boards/collections.js';
 
-const composer = ({match}, onData) => {
-    const {params} = match;
+const composer = ({ match }, onData) => {
+    const { params } = match;
     const subscription = Meteor.subscribe('boards.members', params.boards);
   
     if (subscription.ready()) {
-        let doc = Boards.find({_id: params.boards}, {fields: {members: 1, name: 1}}).fetch()[0];
-        let {members, name} = doc;
+        let doc = Boards.find({ _id: params.boards }, { fields: { members: 1, name: 1 } }).fetch()[0];
+        let { members, name } = doc;
         let user = {};
         let newMembers = members.map(item => {
              if(item.id === Meteor.userId()){
