@@ -5,7 +5,7 @@ import Boards from '../../dashboard/boards/collections.js';
 Meteor.methods({
     'boards.LeaveMember' (boardId) {
         check(boardId, String);
-        let oldBoard = Boards.find({_id: boardId }).fetch();
+        let oldBoard = Boards.find({ _id: boardId }).fetch();
         let oldMembers = oldBoard[0].members;
         let newMembers = oldMembers.map(item => {
             if(item.id === this.userId) {
@@ -15,7 +15,7 @@ Meteor.methods({
                 return item
             }
         }); 
-        Boards.update(boardId, {$set: {members: newMembers}});   
+        Boards.update(boardId, { $set: { members: newMembers } });   
         return 'boards.LeaveMember is OK'
      }
         
